@@ -1,15 +1,17 @@
 ---
 // index.astro
 import '../styles/dist/global.css';
+import Lucide from '../components/Lucide.astro';
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Aspine</title>
 	</head>
-	<body class="bg-black text-[#e5eae7]">
+	<body class="bg-black text-[#e5eae7] overflow-hidden">
 		<main class="px-safe overflow-hidden">
 			<header
 				class="pt-safe sticky top-0 z-40 bg-black/40 text-white backdrop-blur"
@@ -19,11 +21,8 @@ import '../styles/dist/global.css';
 						class="flex flex-wrap place-content-between place-items-center"
 					>
 						<a href="/" class="cta flex flex-row">
-							<img
-								src="https://raw.githubusercontent.com/Aspine/aspine/master/public/images/logo-circle512x512.png"
-								alt="Aspine Logo"
-								class="mr-5 h-8 w-8 z-50"
-							/>
+							<Lucide class="mr-2" name="tree-pine" color="#4ADE80" size={32} />
+
 							<span
 								class="logoText font-['Satoshi-Bold'] text-2xl tracking-wider"
 								>Aspine</span
@@ -35,15 +34,8 @@ import '../styles/dist/global.css';
 							<li class="navElement py-4">
 								<a href="https://aspen.cpsd.us">Aspen</a>
 							</li>
-							<li class="py-4">
-								<hr class="h-[21px] w-1 border-l border-t-0" />
-							</li>
 							<li class="navElement py-4">Contributing</li>
 							<li class="navElement py-4">Changelog</li>
-							<li class="navElement py-4">Uptime</li>
-							<li class="py-4">
-								<hr class="h-[21px] w-1 border-l border-t-0" />
-							</li>
 							<li class="navElement py-4">License</li>
 						</ul>
 						<div class="flex space-x-4 text-sm">
@@ -53,7 +45,7 @@ import '../styles/dist/global.css';
 								>Login</a
 							>
 							<a
-								href="/github"
+								href="https://github.com/aspine/aspine3"
 								class="border-gradient-2 rounded-full border-0 px-8 py-2"
 								>GitHub</a
 							>
@@ -61,8 +53,27 @@ import '../styles/dist/global.css';
 					</div>
 				</nav>
 			</header>
-			<div>
-				<h1></h1>
+			<div class="container relative mx-auto pt-20">
+				<div class="mb-10">
+					<h1
+						class="mb-8 mx-auto max-w-4xl text-center font-['Satoshi-Black'] text-white text-[72px]"
+					>
+						Welcome to<span class="text-[#4ade80] heroText"> Aspine v3</span>.
+					</h1>
+					<h2 class="text-md mb-4 text-center font-[Satoshi-Medium] text-lg text-white">
+						Aspen, reborn. More features, better UI, and a team that is for students, by students.
+					</h2>
+					<a href="" class="border-gradient-2 rounded-full border-0 px-8 py-2">Button 1</a>
+					<a href="" class="border-gradient-3 rounded-full border-0 px-8 py-2">Button 2</a>
+				</div>
+			</div>
+			<div
+				class="blob -z-50 blur-[2000px] w-2/5 h-96 bg-[#4ADE80] absolute -right-52 -bottom-56 rounded-full"
+			>
+			</div>
+			<div
+				class="blob -z-50 blur-[100px] w-[40vw] h-48 bg-[#4ADE8080] absolute left-[15vw] top-[30vh] rounded-full -rotate-[20deg]"
+			>
 			</div>
 		</main>
 	</body>

@@ -112,13 +112,23 @@
 	}
 
 	.logoText {
-		background: linear-gradient(45deg, #fff, #4ade80 80%);
+		background: linear-gradient(45deg, #4ade80, #fff 80%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		transition: ba;
 	}
 
-	/*
+
+	.heroText {
+		background: radial-gradient(88.21% 120.63% at 89.25% 12.7%,
+                #bafbdc 15%,
+                #87fcc4 41%,
+                #48c288 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+        font-family: 'Satoshi-BoldItalic';
+	}
+
+/*
 	.cta {
 		position: relative;
 		transition: all 0.3s ease;
