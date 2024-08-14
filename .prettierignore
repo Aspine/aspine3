@@ -6,6 +6,9 @@ public/$/*
 package-lock.json
 node_modules/**
 pnpm-lock.yaml
+bun.lockB
 .gitignore
 .gitattributes
 LICENSE
+dist/**
+styles/dist/**

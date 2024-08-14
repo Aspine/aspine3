@@ -1,50 +1,50 @@
 ---
-interface Props {
+// Layout.astro
+import '../styles/dist/global.css';
+
+export interface Props {
 	title: string;
+	description?: string;
+	favicon?: string;
+	bodyClasses?: string;
 }
 
-const { title } = Astro.props;
+const {
+	title = 'Aspine',
+	description = 'Aspen, reborn. More features, better UI, and a team that is for students, by students.',
+	favicon = '/favicon.ico',
+	bodyClasses = 'bg-black text-[#e5eae7] overflow-x-hidden'
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{title}</title>
+		<meta name="description" content={description} />
+		{favicon && <link rel="icon" href={favicon} />}
 	</head>
-	<body>
+	<body class={bodyClasses}>
 		<slot />
+		<script>
+			// Thank you stack overflow <3
+			if (typeof window !== 'undefined') {
+				window.addEventListener('pageshow', event => {
+					if (event.persisted) {
+						console.log('Page was restored from bfcache.');
+					}
+				});
+
+				window.addEventListener('pagehide', event => {
+					if (event.persisted) {
+						console.log('Page is about to be put into bfcache.');
+					} else {
+						console.log('Page is being fully unloaded.');
+					}
+				});
+			}
+		</script>
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>

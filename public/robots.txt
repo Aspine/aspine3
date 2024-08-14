@@ -1,0 +1,27 @@
+User-agent: *
+
+Disallow: /*.pdf$
+Disallow: /*.doc$
+Disallow: /*.txt$
+Disallow: /*.xls$
+
+Allow: /Font/
+Allow: /JavaScript/
+Allow: /CSS/
+Allow: /Other/
+
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.html$
+
+Crawl-delay: 10
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Disallow: /*?sessionid=
+Disallow: /*?ref=
+Disallow: /*?utm_source=

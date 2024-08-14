@@ -1,117 +1,130 @@
 ---
 // index.astro
-import '../styles/dist/global.css';
+import Layout from '../layouts/Layout.astro';
 import Lucide from '../components/Lucide.astro';
+
+//astro preferences disable devToolbar
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Aspine</title>
-	</head>
-	<body class="bg-black text-[#e5eae7] overflow-x-hidden">
-		<main class="px-safe">
-			<header
-				class="pt-safe !sticky top-0 z-40 bg-black/40 text-white backdrop-blur max-w-[1480px] mx-auto"
-			>
-				<nav class="mx-auto px-8 py-6">
-					<div
-						class="flex flex-wrap place-content-between place-items-center"
-					>
-						<a href="/" class="cta flex flex-row">
-							<Lucide
-								class="mr-2"
-								name="tree-pine"
-								color="#4ADE80"
-								size={32}
-							/>
+<Layout
+	title="Aspine"
+	description="Aspen, reborn. More features, better UI, and a team that is for students, by students."
+	favicon="/favicon.svg"
+	bodyClasses="bg-black text-[#e5eae7] overflow-x-hidden"
+>
+	<main class="px-safe">
+		<header
+			class="pt-safe !fixed top-0 z-40 bg-black/40 text-white backdrop-blur w-[100vw]"
+		>
+			<nav class="px-8 py-6 mx-auto max-w-[1480px]">
+				<div
+					class="flex flex-wrap place-content-between place-items-center"
+				>
+					<a href="/" class="cta flex flex-row">
+						<Lucide
+							class="mr-2"
+							name="tree-pine"
+							color="#4ADE80"
+							size={32}
+						/>
 
-							<span
-								class="logoText font-['Satoshi-Bold'] text-2xl tracking-wider"
-								>Aspine</span
-							>
-						</a>
+						<span
+							class="logoText font-['Satoshi-Bold'] text-2xl tracking-wider"
+							>Aspine</span
+						>
+					</a>
 
-						<ul class="hidden space-x-8 text-sm lg:flex">
-							<li class="navElement py-4">How Does It Work?</li>
-							<li class="navElement py-4">
-								<a href="https://aspen.cpsd.us">Aspen</a>
-							</li>
-							<li class="navElement py-4">Contributing</li>
-							<li class="navElement py-4">Changelog</li>
-							<li class="navElement py-4">
-								<a href="/license">License</a>
-							</li>
-						</ul>
-						<div class="flex space-x-4 text-sm">
-							<a
-								href="/login"
-								class="border-gradient-1 rounded-full border-0 px-8 py-2"
-								>Login</a
-							>
-							<a
-								href="https://github.com/aspine/aspine3"
-								class="border-gradient-2 rounded-full border-0 px-8 py-2"
-								>GitHub</a
-							>
-						</div>
+					<ul class="hidden space-x-8 text-sm lg:flex">
+						<li class="navElement py-4">How Does It Work?</li>
+						<li class="navElement py-4">
+							<a href="https://aspen.cpsd.us">Aspen</a>
+						</li>
+						<li class="navElement py-4">Contributing</li>
+						<li class="navElement py-4">Changelog</li>
+						<li class="navElement py-4">
+							<a href="/license">License</a>
+						</li>
+					</ul>
+					<div class="flex space-x-4 text-sm">
+						<a
+							href="/login"
+							class="border-gradient-1 rounded-full border-0 px-8 py-2"
+							>Login</a
+						>
+						<a
+							href="https://github.com/aspine/aspine3"
+							class="border-gradient-2 rounded-full border-0 px-8 py-2"
+							>GitHub</a
+						>
 					</div>
-				</nav>
-			</header>
-			<div class="container relative mx-auto pt-20">
-				<div class="mb-10">
-					<h1
-						class="mb-8 mx-auto max-w-4xl text-center font-['Satoshi-Black'] text-white text-[72px]"
-					>
-						Welcome to<span class="text-[#4ade80] heroText">
-							Aspine v3</span
-						>.
-					</h1>
-					<h2
-						class="text-md mb-4 text-center font-[Satoshi-Medium] text-lg text-white"
-					>
-						Aspen, reborn. More features, better UI, and a team that
-						is for students, by students.
-					</h2>
-					<a
-						href=""
-						class="border-gradient-1 rounded-full border-0 px-16 py-4 font-[Satoshi-Medium] text-xl"
-						>Get Started</a
-					>
 				</div>
+			</nav>
+		</header>
+		<div class="container relative mx-auto pt-20">
+			<div class="mb-10">
+				<h1
+					class="mb-8 mx-auto max-w-4xl text-center font-['Satoshi-Black'] text-white text-[128px]"
+				>
+					Welcome to<span class="text-[#4ade80] heroText">
+						<br />&nbsp;Aspine <span
+							class="heroText font-[Satoshi-Italic]">v3</span
+						></span
+					>.
+				</h1>
+				<h2
+					class="text-md mb-4 text-center font-[Satoshi-Medium] text-xl text-white"
+				>
+					Aspen, reborn. More features, better UI, and a team that is
+					for students, by students.
+				</h2>
 			</div>
-			<div
-				class="blob -z-50 blur-[2000px] w-2/5 h-96 bg-[#4ADE80] absolute -right-52 -bottom-56 rounded-full"
+			<a
+				href="/dash"
+				class="getStarted border-gradient-1 rounded-full border-0 px-16 py-4 font-[Satoshi-Medium] text-xl left-[calc(50%-115.595px)] mx-auto z-10"
+				>Get Started</a
 			>
-			</div>
-			<div
-				class="blob -z-50 blur-[100px] w-[40vw] h-48 bg-[#4ADE8080] absolute left-[15vw] top-[30vh] rounded-full -rotate-[20deg]"
-			>
-				<!--
-			<footer
-				class="gradient-stroke-text text-[200px] font-[Satoshi-Bold] uppercase bottom-0 opacity-50 left-1/2 -translate-x-1/2 m-0 absolute"
-			>
-				Aspine
-			</footer>
-								<a
-						href=""
-						class="border-gradient-1 rounded-full border-0 px-8 py-2"
-						>Button 1</a
-					>
-					<a
-						href=""
-						class="border-gradient-2 rounded-full border-0 px-8 py-2"
-						>Button 2</a
-					>
-					<a
-						href=""
-						class="border-gradient-3 rounded-full border-0 px-8 py-2"
-						>Button 3</a
-					>
-		-->
-			</div>
-		</main>
-	</body>
-</html>
+		</div>
+		<div
+			class="blob -z-50 blur-[2000px] w-2/5 h-96 bg-[#4ADE80] absolute -right-52 -bottom-56 rounded-full"
+		>
+		</div>
+		<div
+			class="blob -z-50 blur-[150px] w-[40vw] h-48 bg-[#4ADE8080] absolute left-[15vw] top-[30vh] rounded-full -rotate-[20deg]"
+		>
+		</div>
+		<div
+			class="w-[200vw] blur-[128px] h-[200rem] bg-black -z-1 rounded-full absolute left-1/2 -translate-x-1/2 translate-y-56"
+		>
+		</div>
+	</main>
+	<!--
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Italianno&display=swap"
+	rel="stylesheet"
+/>
+	-->
+	<!--
+<footer
+	class="gradient-stroke-text text-[200px] font-[Satoshi-Bold] uppercase bottom-0 opacity-50 left-1/2 -translate-x-1/2 m-0 absolute"
+>
+	Aspine
+</footer>
+<a
+	href=""
+	class="border-gradient-1 rounded-full border-0 px-8 py-2"
+	>Button 1</a
+>
+<a
+	href=""
+	class="border-gradient-2 rounded-full border-0 px-8 py-2"
+	>Button 2</a
+>
+<a
+	href=""
+	class="border-gradient-3 rounded-full border-0 px-8 py-2"
+	>Button 3</a
+>
+-->
+</Layout>

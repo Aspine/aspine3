@@ -8,9 +8,13 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"watch:prettier": "chokidar '**/*.{js,jsx,ts,tsx,html,json,md,astro,css}' -c \"prettier --write .\"",
+		"watch:prettier": "onchange '**/*.{js,jsx,ts,tsx,html,json,md,astro,css}' -- prettier --write .",
+		"prettier": "prettier --write .",
 		"watch:tailwind": "bunx tailwindcss -i ./src/styles/src/global.css -o ./src/styles/dist/global.css --watch",
-		"watch": "concurrently \"bun run watch:prettier\" \"bun run watch:tailwind\""
+		"tailwind": "bunx tailwindcss -i ./src/styles/src/global.css -o ./src/styles/dist/global.css",
+		"watch": "concurrently \"bun run watch:prettier\" \"bun run watch:tailwind\"",
+		"im-lazy:dev": "echo 'YOUR A LAZY BUM!' && bun i && concurrently \"bun run watch\" \"bun run dev\"",
+		"im-lazy:prod": "echo 'On prod, really?!' && bun i && bun run prettier && bun run tailwind && bun run build &&bun run preview"
 	},
 	"keywords": [],
 	"author": "crllect <crllect@proton.me>",
@@ -19,17 +23,28 @@
 		"@astrojs/preact": "^3.5.1",
 		"@astrojs/tailwind": "^5.1.0",
 		"astro": "^4.13.3",
+		"astro-particles": "^2.10.0",
 		"autoprefixer": "^10.4.20",
 		"chalk": "^5.3.0",
+		"chokidar": "^3.6.0",
 		"lucide-preact": "^0.427.0",
+		"onchange": "^7.1.0",
 		"postcss": "^8.4.41",
 		"preact": "^10.23.2",
 		"prettier-plugin-astro": "^0.14.1",
-		"tailwindcss": "^3.4.9"
+		"tailwindcss": "^3.4.9",
+		"tsparticles": "^3.5.0",
+		"tsparticles-engine": "^2.12.0"
 	},
 	"devDependencies": {
 		"concurrently": "^8.2.2",
 		"prettier": "^3.3.3",
 		"prettier-plugin-tailwindcss": "^0.6.6"
-	}
+	},
+	"trustedDependencies": [
+		"@tsparticles/engine",
+		"esbuild",
+		"sharp",
+		"tsparticles-engine"
+	]
 }

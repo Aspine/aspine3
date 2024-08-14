@@ -11,7 +11,7 @@
 					#7d8b82 0%,
 					#5f6461 22.5%,
 					#263728 53%,
-					#000 100%
+					#000c02 100%
 				)
 				padding-box,
 			transparent;
@@ -235,6 +235,16 @@
 		);
 		-webkit-background-clip: text;
 		-webkit-text-stroke: 3px transparent;
+	}
+
+	.getStarted {
+		transform: translateX(-100%) !important;
+	}
+
+	.italianno-regular {
+		font-family: 'Italianno', cursive;
+		font-weight: 400;
+		font-style: normal;
 	}
 }
 
