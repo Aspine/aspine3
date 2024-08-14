@@ -1,32 +1,35 @@
 {
-  "name": "aspine3",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "compile": "prettier --write . && bunx tailwindcss -i ./src/styles/src/global.css -o ./src/styles/dist/global.css --watch"
-  },
-  "keywords": [],
-  "author": "crllect <crllect@proton.me>",
-  "license": "AGPL",
-  "dependencies": {
-    "@astrojs/preact": "^3.5.1",
-    "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.13.3",
-    "autoprefixer": "^10.4.20",
-    "chalk": "^5.3.0",
-    "lucide-preact": "^0.427.0",
-    "postcss": "^8.4.41",
-    "preact": "^10.23.2",
-    "prettier-plugin-astro": "^0.14.1",
-    "tailwindcss": "^3.4.9"
-  },
-  "devDependencies": {
-    "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.6"
-  }
+	"name": "aspine3",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"watch:prettier": "chokidar '**/*.{js,jsx,ts,tsx,html,json,md,astro,css}' -c \"prettier --write .\"",
+		"watch:tailwind": "bunx tailwindcss -i ./src/styles/src/global.css -o ./src/styles/dist/global.css --watch",
+		"watch": "concurrently \"bun run watch:prettier\" \"bun run watch:tailwind\""
+	},
+	"keywords": [],
+	"author": "crllect <crllect@proton.me>",
+	"license": "AGPL",
+	"dependencies": {
+		"@astrojs/preact": "^3.5.1",
+		"@astrojs/tailwind": "^5.1.0",
+		"astro": "^4.13.3",
+		"autoprefixer": "^10.4.20",
+		"chalk": "^5.3.0",
+		"lucide-preact": "^0.427.0",
+		"postcss": "^8.4.41",
+		"preact": "^10.23.2",
+		"prettier-plugin-astro": "^0.14.1",
+		"tailwindcss": "^3.4.9"
+	},
+	"devDependencies": {
+		"concurrently": "^8.2.2",
+		"prettier": "^3.3.3",
+		"prettier-plugin-tailwindcss": "^0.6.6"
+	}
 }

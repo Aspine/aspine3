@@ -11,17 +11,22 @@ import Lucide from '../components/Lucide.astro';
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Aspine</title>
 	</head>
-	<body class="bg-black text-[#e5eae7] overflow-hidden">
-		<main class="px-safe overflow-hidden">
+	<body class="bg-black text-[#e5eae7] overflow-x-hidden">
+		<main class="px-safe">
 			<header
-				class="pt-safe sticky top-0 z-40 bg-black/40 text-white backdrop-blur"
+				class="pt-safe !sticky top-0 z-40 bg-black/40 text-white backdrop-blur max-w-[1480px] mx-auto"
 			>
 				<nav class="mx-auto px-8 py-6">
 					<div
 						class="flex flex-wrap place-content-between place-items-center"
 					>
 						<a href="/" class="cta flex flex-row">
-							<Lucide class="mr-2" name="tree-pine" color="#4ADE80" size={32} />
+							<Lucide
+								class="mr-2"
+								name="tree-pine"
+								color="#4ADE80"
+								size={32}
+							/>
 
 							<span
 								class="logoText font-['Satoshi-Bold'] text-2xl tracking-wider"
@@ -36,7 +41,9 @@ import Lucide from '../components/Lucide.astro';
 							</li>
 							<li class="navElement py-4">Contributing</li>
 							<li class="navElement py-4">Changelog</li>
-							<li class="navElement py-4">License</li>
+							<li class="navElement py-4">
+								<a href="/license">License</a>
+							</li>
 						</ul>
 						<div class="flex space-x-4 text-sm">
 							<a
@@ -58,14 +65,21 @@ import Lucide from '../components/Lucide.astro';
 					<h1
 						class="mb-8 mx-auto max-w-4xl text-center font-['Satoshi-Black'] text-white text-[72px]"
 					>
-						Welcome to<span class="text-[#4ade80] heroText"> Aspine v3</span>.
+						Welcome to<span class="text-[#4ade80] heroText">
+							Aspine v3</span
+						>.
 					</h1>
-					<h2 class="text-md mb-4 text-center font-[Satoshi-Medium] text-lg text-white">
-						Aspen, reborn. More features, better UI, and a team that is for students, by students.
+					<h2
+						class="text-md mb-4 text-center font-[Satoshi-Medium] text-lg text-white"
+					>
+						Aspen, reborn. More features, better UI, and a team that
+						is for students, by students.
 					</h2>
-					<a href="" class="border-gradient-1 rounded-full border-0 px-8 py-2">Button 1</a>
-					<a href="" class="border-gradient-2 rounded-full border-0 px-8 py-2">Button 2</a>
-					<a href="" class="border-gradient-3 rounded-full border-0 px-8 py-2">Button 3</a>
+					<a
+						href=""
+						class="border-gradient-1 rounded-full border-0 px-16 py-4 font-[Satoshi-Medium] text-xl"
+						>Get Started</a
+					>
 				</div>
 			</div>
 			<div
@@ -75,6 +89,28 @@ import Lucide from '../components/Lucide.astro';
 			<div
 				class="blob -z-50 blur-[100px] w-[40vw] h-48 bg-[#4ADE8080] absolute left-[15vw] top-[30vh] rounded-full -rotate-[20deg]"
 			>
+				<!--
+			<footer
+				class="gradient-stroke-text text-[200px] font-[Satoshi-Bold] uppercase bottom-0 opacity-50 left-1/2 -translate-x-1/2 m-0 absolute"
+			>
+				Aspine
+			</footer>
+								<a
+						href=""
+						class="border-gradient-1 rounded-full border-0 px-8 py-2"
+						>Button 1</a
+					>
+					<a
+						href=""
+						class="border-gradient-2 rounded-full border-0 px-8 py-2"
+						>Button 2</a
+					>
+					<a
+						href=""
+						class="border-gradient-3 rounded-full border-0 px-8 py-2"
+						>Button 3</a
+					>
+		-->
 			</div>
 		</main>
 	</body>

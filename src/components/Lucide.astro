@@ -2,13 +2,13 @@
 import { TreePine } from 'lucide-preact';
 
 const icons = {
-  'tree-pine': TreePine,
+	'tree-pine': TreePine
 };
 
-const { name = "github", ...props } = Astro.props;
+const { name = 'github', ...props } = Astro.props;
 
 if (!icons[name]) {
-  return null;
+	return null;
 }
 
 const IconComponent = icons[name];

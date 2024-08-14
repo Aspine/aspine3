@@ -88,6 +88,16 @@
 		background:
 			linear-gradient(black, black) padding-box,
 			transparent;
+		box-shadow:
+			5px -5px 5px -5px #4ade80,
+			-5px 5px 5px -5px #4ade80;
+		transition: box-shadow 0.3s ease;
+	}
+
+	.border-gradient-3:hover {
+		box-shadow:
+			5px -5px 10px -5px #4ade80,
+			-5px 5px 10px -5px #4ade80;
 	}
 
 	.border-gradient-3::before {
@@ -117,18 +127,19 @@
 		-webkit-text-fill-color: transparent;
 	}
 
-
 	.heroText {
-		background: radial-gradient(88.21% 120.63% at 89.25% 12.7%,
-                #bafbdc 15%,
-                #87fcc4 41%,
-                #48c288 100%);
+		background: radial-gradient(
+			88.21% 120.63% at 89.25% 12.7%,
+			#bafbdc 15%,
+			#87fcc4 41%,
+			#48c288 100%
+		);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-        font-family: 'Satoshi-BoldItalic';
+		font-family: 'Satoshi-BoldItalic';
 	}
 
-/*
+	/*
 	.cta {
 		position: relative;
 		transition: all 0.3s ease;
@@ -196,6 +207,34 @@
 	.navElement:hover::after {
 		transform: scaleX(1) translateY(-15px);
 		transform-origin: bottom left;
+	}
+
+	.text-stroke-transparent {
+		-webkit-text-stroke: 1px transparent;
+	}
+
+	.\!text-stroke-transparent {
+		-webkit-text-stroke: 1px transparent !important;
+	}
+
+	.big-number-text-gradient-orange {
+		background-image: linear-gradient(
+			180deg,
+			#febe73 -87.81%,
+			rgba(255, 190, 114, 0.06) 99.22%
+		);
+	}
+
+	.gradient-stroke-text {
+		color: #101010;
+		background: radial-gradient(
+			88.21% 120.63% at 89.25% 12.7%,
+			#bafbdc 15%,
+			#87fcc4 41%,
+			#48c288 100%
+		);
+		-webkit-background-clip: text;
+		-webkit-text-stroke: 3px transparent;
 	}
 }
 
