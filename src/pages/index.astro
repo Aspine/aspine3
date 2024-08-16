@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Lucide from '../components/Lucide.astro';
 import ThemeToggle from '../components/ThemeToggle.jsx';
+import Navbar from '../components/Navbar.astro';
 
 /**
 	astro preferences disable devToolbar
@@ -17,61 +17,7 @@ export const prerender = true;
 	bodyClasses="bg-[var(--bg-color)] text-[var(--secondary-color)] overflow-hidden"
 >
 	<main class="px-safe">
-		<header
-			class="pt-safe !fixed top-0 z-40 bg-[var(--bg-nav)] text-[var(--text-color-light)] backdrop-blur-[20px] w-[100vw]"
-		>
-			<nav class="px-8 py-6 mx-auto max-w-[1480px] z-40">
-				<div
-					class="flex flex-wrap place-content-between place-items-center"
-				>
-					<a href="/" class="cta flex flex-row xl:w-80">
-						<Lucide
-							class="mr-2"
-							name="tree-pine"
-							color="var(--primary-color)"
-							size={32}
-						/>
-
-						<span
-							class="logoText font-['Satoshi-Bold'] text-2xl tracking-wider"
-							>Aspine</span
-						>
-					</a>
-
-					<ul class="hidden space-x-8 text-sm xl:flex justify-center">
-						<li class="navElement py-4">How Does It Work?</li>
-						<li class="navElement py-4">
-							<a href="https://aspen.cpsd.us">Aspen</a>
-						</li>
-						<li class="navElement py-4">Contributing</li>
-						<li class="navElement py-4">Changelog</li>
-						<li class="navElement py-4">
-							<a href="/license">License</a>
-						</li>
-					</ul>
-					<div class="flex space-x-6 text-sm xl:w-80 tracking-widest">
-						<a
-							href="/login"
-							class="border-gradient-1 rounded-full border-0 px-12 py-3 font-[Satoshi-Bold]"
-							>LOGIN</a
-						>
-						<a
-							href="https://github.com/aspine/aspine3"
-							class="border-gradient-2 rounded-full border-0 px-12 py-3 font-[Satoshi-Bold]"
-							>GITHUB</a
-						>
-					</div>
-				</div>
-			</nav>
-			<div
-				class="w-[65%] absolute h-1 nav2 left-1/2 -translate-x-1/2 -translate-y-0.5"
-			>
-			</div>
-			<div
-				class="w-[75%] absolute h-1 blur-[2px] nav2 left-1/2 -translate-x-1/2 -translate-y-1 -z-10"
-			>
-			</div>
-		</header>
+		<Navbar />
 		<div
 			class="flex flex-col mx-auto my-[5vh] pt-20 items-center justify-center"
 		>
