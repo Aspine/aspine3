@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Lucide from '../components/Lucide.astro';
+import ThemeToggle from '../components/ThemeToggle.jsx';
+// import FetchSessionId from '../components/FetchSessionId.jsx';
+
+//astro preferences disable devToolbar
+export const prerender = true;
+---
+
+<Layout
+	title="Aspine"
+	description="Aspen, reborn. More features, better UI, and a team that is for students, by students."
+	favicon="/favicon.svg"
+	bodyClasses="bg-[var(--bg-color)] text-[var(--secondary-color)] overflow-hidden"
+>
+	<main class="px-safe">
+		<header
+			class="pt-safe !fixed top-0 z-40 bg-[var(--bg-nav)] text-[var(--text-color-light)] backdrop-blur w-[100vw]"
+		>
+			<nav class="px-8 py-6 mx-auto max-w-[1480px]">
+				<div
+					class="flex flex-wrap place-content-between place-items-center"
+				>
+					<a href="/" class="cta flex flex-row">
+						<Lucide
+							class="mr-2"
+							name="tree-pine"
+							color="var(--primary-color)"
+							size={32}
+						/>
+
+						<span
+							class="logoText font-['Satoshi-Bold'] text-2xl tracking-wider"
+							>Aspine</span
+						>
+					</a>
+
+					<ul class="hidden space-x-8 text-sm lg:flex">
+						<li class="navElement py-4">How Does It Work?</li>
+						<li class="navElement py-4">
+							<a href="https://aspen.cpsd.us">Aspen</a>
+						</li>
+						<li class="navElement py-4">Contributing</li>
+						<li class="navElement py-4">Changelog</li>
+						<li class="navElement py-4">
+							<a href="/license">License</a>
+						</li>
+					</ul>
+					<div class="flex space-x-4 text-sm">
+						<a
+							href="/login"
+							class="border-gradient-1 rounded-full border-0 px-8 py-2"
+							>Login</a
+						>
+						<a
+							href="https://github.com/aspine/aspine3"
+							class="border-gradient-2 rounded-full border-0 px-8 py-2"
+							>GitHub</a
+						>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<div class="relative w-[] pt-20">
+			<div class="mx-auto my-10 w-3/4">
+				<div class="border-gradient-3 h-96 rounded-3xl"></div>
+			</div>
+		</div>
+		<div
+			class="blob -z-50 blur-[2000px] w-2/5 h-96 bg-[var(--primary-color)] absolute -right-52 top-[75vh] rounded-full"
+		>
+		</div>
+		<div
+			class="blob -z-50 blur-[150px] w-[40vw] h-48 bg-[var(--primary-color)] absolute left-[15vw] top-[30vh] rounded-full -rotate-[20deg] opacity-50"
+		>
+		</div>
+	</main>
+	<ThemeToggle client:only="preact" />
+	<!--
+			<FetchSessionId client:load />
+		-->
+</Layout>

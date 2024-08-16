@@ -1,5 +1,5 @@
 {
-	"name": "aspine3",
+	"name": "aspine v3",
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
@@ -13,13 +13,14 @@
 		"watch:tailwind": "bunx tailwindcss -i ./src/styles/src/global.css -o ./src/styles/dist/global.css --watch",
 		"tailwind": "bunx tailwindcss -i ./src/styles/src/global.css -o ./src/styles/dist/global.css",
 		"watch": "concurrently \"bun run watch:prettier\" \"bun run watch:tailwind\"",
-		"im-lazy:dev": "echo 'YOUR A LAZY BUM!' && bun i && concurrently \"bun run watch\" \"bun run dev\"",
-		"im-lazy:prod": "echo 'On prod, really?!' && bun i && bun run prettier && bun run tailwind && bun run build &&bun run preview"
+		"im-lazy:dev": "echo 'make sure u ran bun i...' && concurrently \"bun run watch\" \"bun run dev\"",
+		"im-lazy:prod": "bun run prettier && bun run tailwind && bun run build && echo 'on prod, really?' && bun run preview"
 	},
 	"keywords": [],
 	"author": "crllect <crllect@proton.me>",
 	"license": "AGPL",
 	"dependencies": {
+		"@astrojs/node": "^8.3.3",
 		"@astrojs/preact": "^3.5.1",
 		"@astrojs/tailwind": "^5.1.0",
 		"astro": "^4.13.3",
@@ -27,11 +28,14 @@
 		"autoprefixer": "^10.4.20",
 		"chalk": "^5.3.0",
 		"chokidar": "^3.6.0",
+		"express": "^4.19.2",
 		"lucide-preact": "^0.427.0",
+		"node-fetch": "^3.3.2",
 		"onchange": "^7.1.0",
 		"postcss": "^8.4.41",
 		"preact": "^10.23.2",
 		"prettier-plugin-astro": "^0.14.1",
+		"puppeteer": "^23.1.0",
 		"tailwindcss": "^3.4.9",
 		"tsparticles": "^3.5.0",
 		"tsparticles-engine": "^2.12.0"

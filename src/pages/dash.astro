@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+export const prerender = true;
+
+// JSESSIONID is not gonna be in localstorage, this is just for testing as of right now
+---
+
+<Layout
+	title="Aspine - Dashboard"
+	description="Aspen, reborn. More features, better UI, and a team that is for students, by students."
+	favicon="/favicon.svg"
+	bodyClasses="bg-[var(--bg-color)] text-[var(--secondary-color)] overflow-x-hidden"
+>
+	<script>
+		if (!window.localStorage.getItem('JSESSIONID')) {
+			window.location.href = '/login';
+		}
+	</script>
+</Layout>
