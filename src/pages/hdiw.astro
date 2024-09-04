@@ -1,15 +1,30 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import ThemeToggle from '../components/ThemeToggle.jsx';
+import Navbar from '../components/Navbar.astro';
 
+export const prerender = true;
 ---
 
-<div class="w-full h-56 relative mt-96">
-	<span
-		class="numberText text-[20vw] font-[Satoshi-Bold] absolute right-0 mr-10"
-		>01</span
-	>
-	<!-- todo on scroll, drag 01 01 01 01 01 01 01 01 acrros the background of the screen for sudblty
+<Layout
+	title="Aspine"
+	description="Aspen, reborn. More features, better UI, and a team that is for students, by students."
+	favicon="/favicon.svg"
+	bodyClasses="bg-black text-[#e5eae7] overflow-hidden"
+>
+	<main class="px-safe">
+		<Navbar />
+		<div class="w-full h-56 relative mt-96">
+			<span
+				class="numberText text-[20vw] font-[Satoshi-Bold] absolute right-0 mr-10"
+				>01</span
+			>
+			<!-- todo on scroll, drag 01 01 01 01 01 01 01 01 acrros the background of the screen for sudblty
 			 on s -->
-	<span class="numberText2 text-4xl font-[Satoshi-Bold] absolute"
-		>Next Section or something</span
-	>
-</div>
+			<span
+				class="numberText2 text-4/workspaces/aspine3/src/styles/srcxl font-[Satoshi-Bold] absolute"
+				>Next Section or something</span
+			>
+		</div>
+	</main></Layout
+>
