@@ -13,7 +13,7 @@ const GetSessionPrompt = () => {
 		setLoading(true);
 
 		try {
-			const response = await fetch(`/api/getSession?headless=true`, {
+			const response = await fetch(`/api/getSession?headless=false`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'

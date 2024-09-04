@@ -10,8 +10,8 @@
 		"astro": "astro",
 		"watch:prettier": "onchange '**/*.{js,jsx,ts,tsx,html,json,md,astro,css}' -- prettier --write .",
 		"prettier": "prettier --write .",
-		"watch:tailwind": "bunx tailwindcss -i ./src/styles/src/global.css -o ./src/styles/dist/global.css --watch",
-		"tailwind": "bunx tailwindcss -i ./src/styles/src/global.css -o ./src/styles/dist/global.css",
+		"watch:tailwind": "bunx tailwindcss -i ./src/styles/src/globals.css -o ./src/styles/dist/globals.css --watch",
+		"tailwind": "bunx tailwindcss -i ./src/styles/src/globals.css -o ./src/styles/dist/globals.css",
 		"watch": "concurrently \"bun run watch:prettier\" \"bun run watch:tailwind\"",
 		"im-lazy:dev": "echo 'make sure u ran bun i...' && concurrently \"bun run watch\" \"bun run dev\"",
 		"im-lazy:prod": "bun run prettier && bun run tailwind && bun run build && echo 'on prod, really?' && bun run preview"

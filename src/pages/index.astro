@@ -14,7 +14,7 @@ export const prerender = true;
 	title="Aspine"
 	description="Aspen, reborn. More features, better UI, and a team that is for students, by students."
 	favicon="/favicon.svg"
-	bodyClasses="bg-[var(--bg-color)] text-[var(--secondary-color)] overflow-hidden"
+	bodyClasses="bg-black text-[#e5eae7] overflow-hidden"
 >
 	<main class="px-safe">
 		<Navbar />
@@ -22,9 +22,9 @@ export const prerender = true;
 			class="flex flex-col mx-auto my-[5vh] pt-20 items-center justify-center"
 		>
 			<h1
-				class="mx-auto text-center max-w-[80vw] font-['Satoshi-Black'] text-[var(--text-color-light)] text-[12vh] 2xl:text-8xl xl:text-8xl lg:text-7xl md:text-6xl left-1/2 2xl:mt-[10vh] xl:mt-32 lg:mt-12 md:m-8 mb-4 2xl:mb-8 xl:mb-8 lg:mb-8"
+				class="mx-auto text-center max-w-[80vw] font-['Satoshi-Black'] text-[#fff] text-[12vh] 2xl:text-8xl xl:text-8xl lg:text-7xl md:text-6xl left-1/2 2xl:mt-[10vh] xl:mt-32 lg:mt-12 md:m-8 mb-4 2xl:mb-8 xl:mb-8 lg:mb-8"
 			>
-				Welcome to<span class="text-[var(--primary-color)] heroText"
+				Welcome to<span class="text-[#4ade80] heroText"
 					>&nbsp;Aspine <span class="heroText font-[Satoshi-Italic]"
 						>v3</span
 					></span
@@ -35,13 +35,13 @@ export const prerender = true;
 				<br />
 			</h1>
 			<p
-				class="xl:text-lg lg:text-base md:text-sm my-4 text-center font-[Satoshi-BoldItalic] text-[var(--text-color-light2)]"
+				class="xl:text-lg lg:text-base md:text-sm my-4 text-center font-[Satoshi-BoldItalic] text-[#ffffff8e]"
 			>
 				More features, better UI, and a team that is for students, by
 				students.
 			</p>
 			<p
-				class="xl:text-lg lg:text-base md:text-sm text-center my-4 font-[Satoshi-Light] text-[var(--text-color-light3)] max-w-2xl"
+				class="xl:text-lg lg:text-base md:text-sm text-center my-4 font-[Satoshi-Light] text-[#ffffff75] max-w-2xl"
 			>
 				Aspine has been a major part of student quality of life at CRLS.
 				Aspine v3 combines the speed of modern tools, and the features
@@ -56,19 +56,26 @@ export const prerender = true;
 				>
 				<a
 					href="/hdiw"
-					class="border-gradient-1 hdiw rounded-full border-0 px-12 py-3 font-[Satoshi-Bold]"
-					>HOW DOES IT WORK?</a
+					class="button font-[Satoshi-Bold] rounded-full hdiw"
 				>
+					<div class="blob1"></div>
+					<div class="blob2"></div>
+					<div
+						class="inner-button px-12 py-3 font-[Satoshi-Bold] content-center"
+					>
+						HOW DOES IT WORK?
+					</div>
+				</a>
 			</div>
 		</div>
 
 		<div
-			class="blob -z-50 blur-[128px] w-2/5 h-96 bg-[var(--background-gradient-end)] absolute -right-64 top-[75vh] rounded-full"
+			class="blob -z-50 blur-[10vw] w-2/5 h-96 bg-[#48c288] absolute -right-64 top-[75vh] rounded-full"
 		>
 		</div>
 
 		<div
-			class="w-[200vw] bottomBlur blur-[128px] h-[145vh] bg-[var(--bg-color)] rounded-full absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-[165vh] -z-10"
+			class="w-[200vw] bottomBlur blur-[128px] h-[145vh] bg-[black] rounded-full absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-[165vh] -z-10"
 		>
 		</div>
 		<!--

@@ -2,88 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-	--primary-color: #4ade80;
-	--secondary-color: #e5eae7;
-	--accent-color: #818a82;
-	--background-dark: #000c02;
-	--background-medium-dark: #263728;
-	--background-medium-dark2: #372e26;
-	--background-light: #5f6461;
-	--background-lighter: #7d8b82;
-	--background-gradient-start: #bafbdc;
-	--background-gradient-mid: #87fcc4;
-	--background-gradient-end: #48c288;
-	--text-color-dark: #101010;
-	--text-color-light: #fff;
-	--text-color-light2: #ffffff8e;
-	--text-color-light3: #ffffff75;
-	--orange-gradient-start: #febe73;
-	--orange-gradient-mid: #eac295;
-	--transparent: transparent;
-	--bg-color: black;
-	--bg-nav: rgb(0 0 0 / 0.7);
-	--bg-nav2: #4ade8051;
-}
-
-[data-theme='dark'] {
-	--primary-color: #4ade80;
-	--secondary-color: #e5eae7;
-	--accent-color: #818a82;
-	--background-dark: #000c02;
-	--background-medium-dark: #263728;
-	--background-light: #5f6461;
-	--background-lighter: #7d8b82;
-	--background-gradient-start: #bafbdc;
-	--background-gradient-mid: #87fcc4;
-	--background-gradient-end: #48c288;
-	--text-color-dark: #101010;
-	--text-color-light: #fff;
-	--text-color-light2: #ffffff8e;
-	--text-color-light3: #ffffff68;
-	--orange-gradient-start: #febe73;
-	--orange-gradient-mid: #eac295;
-	--transparent: transparent;
-	--bg-color: black;
-	--bg-nav: rgb(0 0 0 / 0.7);
-	--bg-nav2: #4ade8051;
-}
-
-[data-theme='light'] {
-	--primary-color: #de4ab7;
-	--secondary-color: #dadada;
-	--accent-color: #8a8189;
-	--background-dark: #0c0008;
-	--background-medium-dark: #372636;
-	--background-light: #645f63;
-	--background-lighter: #8b7d87;
-	--background-gradient-start: #fbbae0;
-	--background-gradient-mid: #fc87d5;
-	--background-gradient-end: #c2489f;
-	--text-color-dark: #dcdcdc;
-	--text-color-light: #000000;
-	--orange-gradient-start: #febe73;
-	--transparent: transparent;
-	--bg-color: rgb(116, 116, 116);
-	--bg-nav2: rgba(38, 41, 35, 0.301);
-}
-
 @layer components {
 	.border-gradient-1 {
-		@apply relative rounded-full border-none border-transparent text-[var(--secondary-color)];
+		@apply relative rounded-full border-none border-transparent text-[#e5eae7];
 		background:
 			radial-gradient(
 					88.21% 120.63% at 89.25% 12.7%,
-					var(--background-lighter) 0%,
-					var(--background-light) 22.5%,
-					var(--background-medium-dark) 53%,
-					var(--background-dark) 100%
+					#7d8b82 0%,
+					#5f6461 22.5%,
+					#263728 53%,
+					#000c02 100%
 				)
 				padding-box,
-			var(--transparent);
+			transparent;
 		box-shadow:
-			-1px 1px 10px -5px var(--primary-color),
-			5px -1px 10px -5px var(--secondary-color);
+			-1px 1px 10px -5px #4ade80,
+			5px -1px 10px -5px #e5eae7;
 		transition:
 			box-shadow 0.3s ease,
 			transform 0.3s ease;
@@ -92,8 +26,8 @@
 
 	.border-gradient-1:hover {
 		box-shadow:
-			-5px 1px 15px -5px var(--primary-color),
-			5px -1px 20px -5px var(--secondary-color);
+			-5px 1px 15px -5px #4ade80,
+			5px -1px 20px -5px #e5eae7;
 	}
 
 	.border-gradient-1::before {
@@ -107,12 +41,12 @@
 		pointer-events: none;
 		background: conic-gradient(
 			from 180deg at 50% 50%,
-			var(--accent-color) 0deg,
-			var(--background-medium-dark) 38deg,
-			var(--primary-color) 72deg,
-			var(--background-dark) 120deg,
-			var(--secondary-color) 240deg,
-			var(--accent-color) 338deg
+			#818a82 0deg,
+			#263728 38deg,
+			#4ade80 72deg,
+			#000c02 120deg,
+			#e5eae7 240deg,
+			#818a82 338deg
 		);
 		border-radius: inherit;
 		transition: transform 0.3s ease;
@@ -123,45 +57,44 @@
 	}
 
 	.border-gradient-2 {
-		@apply relative origin-center rounded-full border-none border-transparent text-[var(--text-color-dark)];
+		@apply relative origin-center rounded-full border-none border-transparent text-[#101010];
 		background:
 			radial-gradient(
 					88.21% 120.63% at 89.25% 12.7%,
-					var(--background-gradient-start) 15%,
-					var(--background-gradient-mid) 41%,
-					var(--background-gradient-end) 100%
+					#bafbdc 15%,
+					#87fcc4 41%,
+					#48c288 100%
 				)
 				padding-box,
-			var(--transparent);
+			transparent;
 		box-shadow:
-			-1px 1px 10px -5px var(--primary-color),
-			5px -1px 10px -5px var(--primary-color);
+			-1px 1px 10px -5px #4ade80,
+			5px -1px 10px -5px #4ade80;
 		transition:
 			box-shadow 0.3s ease,
 			transform 0.3s ease;
 		transform-origin: center center;
-		transform: scale(1.075);
 	}
 
 	.border-gradient-2:hover {
 		box-shadow:
-			-5px 1px 10px -5px var(--primary-color),
-			5px -1px 25px -5px var(--primary-color);
+			-5px 1px 10px -5px #4ade80,
+			5px -1px 25px -5px #4ade80;
 	}
 
 	.border-gradient-3 {
-		@apply relative border-none border-transparent;
-		background: var(--bg-color);
+		@apply relative content-center border-none border-transparent;
+		background: black;
 		box-shadow:
-			5px -5px 5px -15px var(--primary-color),
-			-5px 5px 5px -15px var(--primary-color);
+			5px -5px 5px -15px #4ade80,
+			-5px 5px 5px -15px #4ade80;
 		transition: box-shadow 0.3s ease;
 	}
 
 	.border-gradient-3:hover {
 		box-shadow:
-			5px -5px 10px -10px var(--primary-color),
-			-5px 5px 10px -10px var(--primary-color);
+			5px -5px 10px -10px #4ade80,
+			-5px 5px 10px -10px #4ade80;
 	}
 
 	.border-gradient-3::before {
@@ -174,23 +107,19 @@
 		z-index: -1;
 		background: conic-gradient(
 			from 180deg at 50% 50%,
-			var(--bg-color) 24deg,
-			var(--primary-color) 72deg,
-			var(--bg-color) 120deg,
-			var(--bg-color) 196deg,
-			var(--primary-color) 240deg,
-			var(--bg-color) 300deg,
-			var(--bg-color) 360deg
+			black 24deg,
+			#4ade80 72deg,
+			black 120deg,
+			black 196deg,
+			#4ade80 240deg,
+			black 300deg,
+			black 360deg
 		);
 		border-radius: inherit;
 	}
 
 	.logoText {
-		background: linear-gradient(
-			45deg,
-			var(--primary-color),
-			var(--text-color-light) 80%
-		);
+		background: linear-gradient(45deg, #4ade80, #fff 80%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
@@ -198,10 +127,11 @@
 	.heroText {
 		background: radial-gradient(
 			88.21% 120.63% at 89.25% 12.7%,
-			var(--background-gradient-start) 15%,
-			var(--background-gradient-mid) 41%,
-			var(--background-gradient-end) 100%
+			#bafbdc 15%,
+			#87fcc4 41%,
+			#48c288 100%
 		);
+		background-clip: unset;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		font-family: 'Satoshi-BoldItalic';
@@ -210,23 +140,104 @@
 	.heroText2 {
 		background: radial-gradient(
 			88.21% 120.63% at 89.25% 12.7%,
-			var(--background-gradient-start) 15%,
+			#bafbdc 15%,
 			#87fcc372 56%,
-			var(--orange-gradient-start) 100%
+			#febe73 100%
 		);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		font-family: 'Satoshi-BoldItalic';
 	}
 
+	.numberText {
+		background-image: linear-gradient(
+			180deg,
+			#febe73 -87.81%,
+			rgba(255, 190, 114, 0.06) 99.22%
+		);
+		mask: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: black;
+		-webkit-text-stroke-width: 1px;
+		-webkit-text-stroke-color: transparent;
+	}
+
+	.button {
+		cursor: pointer;
+		border: none;
+		padding: 1.5px;
+		background: radial-gradient(circle 80px at 80% -10%, #ffffff, #101010);
+		position: relative;
+		transition: all 0.3s ease;
+	}
+
+	.button:hover {
+		@apply text-gray-500;
+		background: radial-gradient(circle 80px at 80% -10%, #d6d6d6, #0f1110);
+	}
+
+	.button::after {
+		content: '';
+		position: absolute;
+		width: 65%;
+		height: 60%;
+		@apply rounded-full;
+		top: 0;
+		right: 0;
+		box-shadow: -2px 5px 20px -10px #ffffff;
+		z-index: -1;
+	}
+
+	.blob1 {
+		position: absolute;
+		width: 70px;
+		height: 100%;
+		@apply rounded-full;
+		bottom: 0;
+		left: 0;
+		background: radial-gradient(
+			circle 60px at 0% 100%,
+			#4ade80,
+			#87fcc372,
+			transparent
+		);
+		box-shadow: -10px 10px 30px #87fcc320;
+	}
+
+	.inner-button {
+		padding: 14px 25px;
+		@apply rounded-full;
+		color: #fff;
+		z-index: 3;
+		position: relative;
+		background: radial-gradient(circle 80px at 80% -50%, #777777, #0f1110);
+		transition: all 0.3s ease;
+	}
+
+	.inner-button:hover {
+		color: #fff8 !important;
+	}
+
+	.inner-button::before {
+		content: '';
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		@apply rounded-full;
+		background: radial-gradient(
+			circle 60px at 0% 100%,
+			#00ff661a,
+			#00ff2611,
+			transparent
+		);
+		position: absolute;
+	}
+
 	.navElement {
 		display: inline-block;
 		position: relative;
-		background: linear-gradient(
-			45deg,
-			var(--text-color-light),
-			var(--primary-color) 80%
-		);
+		background: linear-gradient(45deg, #fff, #4ade80 80%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		transition:
@@ -238,11 +249,7 @@
 	}
 
 	.navElement:hover {
-		background: linear-gradient(
-			45deg,
-			var(--text-color-light),
-			var(--primary-color) 80%
-		);
+		background: linear-gradient(45deg, #fff, #4ade80 80%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-size: 1000% 1000%;
@@ -257,7 +264,7 @@
 		height: 2px;
 		bottom: 0;
 		left: 0;
-		background-color: var(--primary-color);
+		background-color: #4ade80;
 		transform-origin: bottom right;
 		transition: transform 0.3s ease-in-out;
 	}
@@ -268,31 +275,31 @@
 	}
 
 	.text-stroke-transparent {
-		-webkit-text-stroke: 1px var(--transparent);
+		-webkit-text-stroke: 1px transparent;
 	}
 
 	.\!text-stroke-transparent {
-		-webkit-text-stroke: 1px var(--transparent) !important;
+		-webkit-text-stroke: 1px transparent !important;
 	}
 
 	.big-number-text-gradient-orange {
 		background-image: linear-gradient(
 			180deg,
-			var(--orange-gradient-start) -87.81%,
+			#febe73 -87.81%,
 			rgba(255, 190, 114, 0.06) 99.22%
 		);
 	}
 
 	.gradient-stroke-text {
-		color: var(--text-color-dark);
+		color: #101010;
 		background: radial-gradient(
 			88.21% 120.63% at 89.25% 12.7%,
-			var(--background-gradient-start) 15%,
-			var(--background-gradient-mid) 41%,
-			var(--background-gradient-end) 100%
+			#bafbdc 15%,
+			#87fcc4 41%,
+			#48c288 100%
 		);
 		-webkit-background-clip: text;
-		-webkit-text-stroke: 3px var(--transparent);
+		-webkit-text-stroke: 3px transparent;
 	}
 
 	.getStarted {
@@ -311,7 +318,7 @@
 	.nav2 {
 		background: radial-gradient(
 			100% 100% at 50% 50%,
-			var(--bg-nav2) 0%,
+			#4ade8051 0%,
 			transparent 50%
 		);
 	}
