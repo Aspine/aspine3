@@ -1,12 +1,19 @@
 import puppeteer from 'puppeteer';
+import UserAgent from 'user-agents';
 // I need to comment this or else ill go nuts
 
 export async function POST({ request, url }) {
+	const userAgent = new UserAgent();
+	console.log(userAgent.random().toString());
+
 	const { username, password } = await request.json();
-	const headless = !(url.searchParams.get('headless') === 'false'); // if I put /?headless=false then it will have a head, for debugging
+	const headless = !(url.search === '?headless=false'); // if I put /?headless=false then it will have a head, for debugging
 
 	const browser = await puppeteer.launch({ headless });
 	const page = await browser.newPage();
+	// TODO: make it so the user agent can only be desktop
+	await page.setUserAgent(userAgent.random().toString());
+
 	/** THIS IS WHAT A CAPTCHA LOOKS LIKE:
 		<img
 			jsname="O9Milc"
@@ -75,15 +82,39 @@ export async function POST({ request, url }) {
 				headers: { 'Content-Type': 'application/json' }
 			});
 		} else {
-			console.error('not a district domain');
-			await browser.close();
-			return new Response(
-				JSON.stringify({ error: 'not a district domain (json)' }),
-				{
-					status: 400,
+			await page.waitForNavigation();
+			if (page.url().includes('.cpsd.us')) {
+				const jsessionid = currentUrl.match(/jsessionid=([^&]*)/)[1];
+
+				// store the session id as a cookie
+				await page.setCookie({
+					name: 'JSESSIONID',
+					value: jsessionid,
+					domain: '.cpsd.us',
+					path: '/',
+					maxAge: 900 // im guessing 15 min for session length
+				}); // TODO: whenever we need to get something from aspen, if the request fails, expire the cookie
+
+				console.log('JSESSIONID:', jsessionid);
+
+				await browser.close();
+
+				// return the session
+				return new Response(JSON.stringify({ jsessionid }), {
+					status: 200,
 					headers: { 'Content-Type': 'application/json' }
-				}
-			);
+				});
+			} else {
+				console.error('not a district domain');
+				await browser.close();
+				return new Response(
+					JSON.stringify({ error: 'not a district domain (json)' }),
+					{
+						status: 400,
+						headers: { 'Content-Type': 'application/json' }
+					}
+				);
+			}
 		}
 	} catch (error) {
 		console.error('puppet not happy :c so heres the error:', error);
