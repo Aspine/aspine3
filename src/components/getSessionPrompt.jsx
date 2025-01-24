@@ -28,6 +28,10 @@ const GetSessionPrompt = () => {
 			const data = await response.json();
 			console.log('JSESSIONID:', data.jsessionid);
 			setSessionid(data.jsessionid);
+			localStorage.setItem('JSESSIONID', `${data.jsessionid}`);
+			if (localStorage.getItem('JSESSIONID') != null) {
+				window.location.href = '/dash';
+			}
 		} catch (error) {
 			console.error('Error fetching JSESSIONID:', error);
 		} finally {
