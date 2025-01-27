@@ -8,7 +8,7 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"watch:prettier": "onchange '**/*.{js,jsx,ts,tsx,html,json,md,astro,css}' -- prettier --write .",
+		"watch:prettier": "onchange '**/*.{js,jsx,ts,tsx,html,json,md,astro,css}' -- prettier --write --loglevel warn .",
 		"prettier": "prettier --write .",
 		"watch:tailwind": "bunx tailwindcss -i ./src/styles/src/globals.css -o ./src/styles/dist/globals.css --watch",
 		"tailwind": "bunx tailwindcss -i ./src/styles/src/globals.css -o ./src/styles/dist/globals.css",
