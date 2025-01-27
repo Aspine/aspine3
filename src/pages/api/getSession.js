@@ -3,15 +3,14 @@ import UserAgent from 'user-agents';
 // I need to comment this or else ill go nuts
 
 export async function POST({ request, url }) {
-	const userAgent = new UserAgent();
-	console.log(userAgent.random().toString());
+	const userAgent = new UserAgent({ deviceCategory: 'desktop' });
 
 	const { username, password } = await request.json();
 	const headless = !(url.search === '?headless=false'); // if I put /?headless=false then it will have a head, for debugging
 
 	const browser = await puppeteer.launch({ headless });
 	const page = await browser.newPage();
-	// TODO: make it so the user agent can only be desktop
+
 	await page.setUserAgent(userAgent.random().toString());
 
 	/** THIS IS WHAT A CAPTCHA LOOKS LIKE:
