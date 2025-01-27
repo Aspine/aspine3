@@ -49,6 +49,7 @@ const GetSessionPrompt = () => {
 						value={username}
 						onChange={e => setUsername(e.target.value)}
 						required
+						className="text-black"
 					/>
 				</label>
 			</div>
@@ -60,6 +61,7 @@ const GetSessionPrompt = () => {
 						value={password}
 						onChange={e => setPassword(e.target.value)}
 						required
+						className="text-black"
 					/>
 				</label>
 			</div>
