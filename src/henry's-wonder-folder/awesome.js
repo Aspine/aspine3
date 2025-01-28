@@ -57,4 +57,6 @@ function calcAvgGPA(gradeTypeArray, isWeighted) {
 	return avgGPA / gradeTypeArray.length;
 }
 
+
+
 //it just works......
