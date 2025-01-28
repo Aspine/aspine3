@@ -68,7 +68,7 @@ export async function POST({ request, url }) {
 				value: jsessionid,
 				domain: '.cpsd.us',
 				path: '/',
-				maxAge: 900 // im guessing 15 min for session length
+				maxAge: 1800 // im guessing 15 min for session length
 			}); // TODO: whenever we need to get something from aspen, if the request fails, expire the cookie
 
 			console.log('JSESSIONID:', jsessionid);
@@ -91,7 +91,7 @@ export async function POST({ request, url }) {
 					value: jsessionid,
 					domain: '.cpsd.us',
 					path: '/',
-					maxAge: 900 // im guessing 15 min for session length
+					maxAge: 1800 // im guessing 15 min for session length
 				}); // TODO: whenever we need to get something from aspen, if the request fails, expire the cookie
 
 				console.log('JSESSIONID:', jsessionid);

@@ -12,10 +12,15 @@ export const prerender = true;
 	bodyClasses="bg-[var(--bg-color)] text-[var(--secondary-color)] overflow-x-hidden"
 >
 	<script>
-		if (!window.localStorage.getItem('JSESSIONID')) {
+		if (
+			!(document.cookie.match(
+				/^(?:.*;)?\s*JSESSIONID\s*=\s*([^;]+)(?:.*)?$/
+			) || [, null])[1]
+		) {
 			window.location.href = '/login';
 		}
 	</script>
+
 	<a href="/"><button>shut up leo</button></a>
 	Hey hunty-punty, make this look not shitty
 </Layout>

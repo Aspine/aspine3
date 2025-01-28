@@ -28,10 +28,7 @@ const GetSessionPrompt = () => {
 			const data = await response.json();
 			console.log('JSESSIONID:', data.jsessionid);
 			setSessionid(data.jsessionid);
-			localStorage.setItem('JSESSIONID', `${data.jsessionid}`);
-			if (localStorage.getItem('JSESSIONID') != null) {
-				window.location.href = '/dash';
-			}
+			document.cookie = `JSESSIONID=${data.jsessionid}; max-age=${30 * 60}; path=/;`;
 		} catch (error) {
 			console.error('Error fetching JSESSIONID:', error);
 		} finally {
