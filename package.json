@@ -15,7 +15,7 @@
 		"watch": "concurrently \"bun run watch:prettier\" \"bun run watch:tailwind\"",
 		"start:dev": "concurrently \"bun run watch\" \"bun run dev\"",
 		"start:prod": "bun run prettier && bun run tailwind && bun run build && echo 'on prod, really?' && bun run preview",
-		"start:first": "npm i -g bun && bun i && bun run start:dev"
+		"start:first": "npm i -g bun && bun i && bunx puppeteer browsers install chrome && bun run start:dev"
 	},
 	"keywords": [],
 	"author": "crllect <crllect@proton.me>",
