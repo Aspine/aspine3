@@ -65,7 +65,7 @@ export async function POST({ request, url }) {
 			// store the session id as a cookie
 			await page.setCookie({
 				name: 'JSESSIONID',
-				value: jsessionid,
+				value: `${jsessionid}.puse2aspn10ap01`,
 				domain: '.cpsd.us',
 				path: '/',
 				maxAge: 1800 // im guessing 15 min for session length
