@@ -58,3 +58,34 @@ function calcAvgGPA(gradeTypeArray, isWeighted) {
 }
 
 //it just works......
+
+const gpastuff = [
+	[100.0, 'ap'],
+	[100.0, 'ap'],
+	[100.0, 'ap'],
+	[100.0, 'ap']
+];
+
+let newthing = convertToFourScale(gpastuff);
+console.log(newthing);
+console.log(calcAvgGPA(newthing, true));
+
+function getType(className) {
+	let typing;
+	className = className.toLowerCase();
+	if (typeof className === string) {
+		if (className.includes('honors')) {
+			typing = 'hn';
+		} else if (className.includes('ap')) {
+			typing = 'ap';
+		} else {
+			typing = 'rg';
+		}
+	} else {
+		throw new Error(`Invalid arguement exception ${className}`);
+	}
+
+	return typing;
+}
+
+function buildGradeTypeArray(roughTypeArray) {}
