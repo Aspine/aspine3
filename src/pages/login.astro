@@ -14,6 +14,19 @@ export const prerender = true;
 	favicon="/favicon.svg"
 	bodyClasses="bg-black text-[#e5eae7] overflow-hidden"
 >
+	<script>
+		if (document.cookie) {
+			if (
+				document.cookie
+					.split('; ')
+					.find(row => row.startsWith('JSESSIONID='))
+					?.split('=')[1]
+			) {
+				window.location.href = '/dash';
+			}
+		}
+	</script>
+
 	<main class="px-safe">
 		<Navbar />
 		<div

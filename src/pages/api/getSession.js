@@ -60,49 +60,65 @@ export async function POST({ request, url }) {
 		// only work if its cpsd.us, there are some edge cases where it was trying to load the wrong url and hanging
 		const currentUrl = page.url();
 		if (currentUrl.includes('.cpsd.us')) {
-			const jsessionid = currentUrl.match(/jsessionid=([^&]*)/)[1];
+			const cookies = await page.cookies();
+			const jsessionidCookie = cookies.find(
+				cookie => cookie.name === 'JSESSIONID'
+			);
 
-			// store the session id as a cookie
-			await page.setCookie({
-				name: 'JSESSIONID',
-				value: `${jsessionid}.puse2aspn10ap01`,
-				domain: '.cpsd.us',
-				path: '/',
-				maxAge: 1800 // im guessing 15 min for session length
-			}); // TODO: whenever we need to get something from aspen, if the request fails, expire the cookie
-
-			console.log('JSESSIONID:', jsessionid);
-
-			await browser.close();
-
-			// return the session
-			return new Response(JSON.stringify({ jsessionid }), {
-				status: 200,
-				headers: { 'Content-Type': 'application/json' }
-			});
-		} else {
-			await page.waitForNavigation();
-			if (page.url().includes('.cpsd.us')) {
-				const jsessionid = currentUrl.match(/jsessionid=([^&]*)/)[1];
-
-				// store the session id as a cookie
-				await page.setCookie({
-					name: 'JSESSIONID',
-					value: jsessionid,
-					domain: '.cpsd.us',
-					path: '/',
-					maxAge: 1800 // im guessing 15 min for session length
-				}); // TODO: whenever we need to get something from aspen, if the request fails, expire the cookie
+			if (jsessionidCookie) {
+				const jsessionid = jsessionidCookie.value;
 
 				console.log('JSESSIONID:', jsessionid);
 
 				await browser.close();
 
-				// return the session
 				return new Response(JSON.stringify({ jsessionid }), {
 					status: 200,
 					headers: { 'Content-Type': 'application/json' }
 				});
+			} else {
+				console.error('JSESSIONID cookie not found');
+				await browser.close();
+				return new Response(
+					JSON.stringify({ error: 'JSESSIONID cookie not found' }),
+					{
+						status: 400,
+						headers: { 'Content-Type': 'application/json' }
+					}
+				);
+			}
+		} else {
+			await page.waitForNavigation();
+			if (page.url().includes('.cpsd.us')) {
+				const cookies = await page.cookies();
+				const jsessionidCookie = cookies.find(
+					cookie => cookie.name === 'JSESSIONID'
+				);
+
+				if (jsessionidCookie) {
+					const jsessionid = jsessionidCookie.value;
+
+					console.log('JSESSIONID:', jsessionid);
+
+					await browser.close();
+
+					return new Response(JSON.stringify({ jsessionid }), {
+						status: 200,
+						headers: { 'Content-Type': 'application/json' }
+					});
+				} else {
+					console.error('JSESSIONID cookie not found');
+					await browser.close();
+					return new Response(
+						JSON.stringify({
+							error: 'JSESSIONID cookie not found'
+						}),
+						{
+							status: 400,
+							headers: { 'Content-Type': 'application/json' }
+						}
+					);
+				}
 			} else {
 				console.error('not a district domain');
 				await browser.close();

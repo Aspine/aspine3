@@ -1,15 +1,23 @@
-const GetGrades = () => {
+import { h } from 'preact';
+import { useState, useEffect } from 'preact/hooks';
+
+const GetGrades = ({ jsessionId }) => {
+	const [grades, setGrades] = useState(null);
+	const [loading, setLoading] = useState(false);
+
 	const handleSubmit = async event => {
 		event.preventDefault();
 		setLoading(true);
 		try {
-			const response = await fetch(`/api/getGrades?headless=false`, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({ username, password })
-			});
+			const response = await fetch(
+				`/api/getGrades?headless=false&jsessionid=${jsessionId}`,
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				}
+			);
 
 			if (!response.ok) {
 				throw new Error(`HTTP error! status: ${response.status}`);
@@ -26,12 +34,16 @@ const GetGrades = () => {
 		}
 	};
 
-	const jsessionId = document.cookie
-		.split('; ')
-		.find(row => row.startsWith('JSESSIONID='))
-		.split('=')[1];
-
-	return <div>{jsessionId}</div>;
+	return (
+		<>
+			<div>{jsessionId}</div>
+			<form onSubmit={handleSubmit}>
+				<button type="submit" disabled={loading}>
+					{loading ? 'Loading...' : 'Get Grades'}
+				</button>
+			</form>
+		</>
+	);
 };
 
 export default GetGrades;

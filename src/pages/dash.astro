@@ -1,10 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import GetGrades from '../components/GetGrades.jsx';
-
-export const prerender = true;
-
-// JSESSIONID is not gonna be in localstorage, this is just for testing as of right now
 ---
 
 <Layout
@@ -13,18 +9,37 @@ export const prerender = true;
 	favicon="/favicon.svg"
 	bodyClasses="bg-[var(--bg-color)] text-[var(--secondary-color)] overflow-x-hidden"
 >
-	<script>
-		if (
-			!(document.cookie.match(
-				/^(?:.*;)?\s*JSESSIONID\s*=\s*([^;]+)(?:.*)?$/
-			) || [, null])[1]
-		) {
-			window.location.href = '/login';
-		}
-	</script>
-
 	<a href="/"><button>shut up leo</button></a>
-	Hey hunty-punty, make this look not shitty
 
-	<GetGrades client:load />
+	<GetGrades client:load jsessionId={undefined} />
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			if (!document.cookie) {
+				window.location.href = '/login';
+				return;
+			}
+
+			const jsessionId = document.cookie
+				.split('; ')
+				.find(row => row.startsWith('JSESSIONID='))
+				?.split('=')[1];
+
+			if (!jsessionId) {
+				console.error(
+					'No JSESSIONID found, redirecting to login page...'
+				);
+				window.location.href = '/login';
+				return;
+			}
+
+			window.jsessionId = jsessionId;
+
+			const getGradesComponent = document.querySelector('get-grades');
+			if (getGradesComponent) {
+				// not being passed to jsx, need to reload jsx island after jsessionid is defined
+				getGradesComponent.setAttribute('jsessionId', jsessionId);
+			}
+		});
+	</script>
 </Layout>
