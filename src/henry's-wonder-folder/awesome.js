@@ -58,3 +58,11 @@ function calcAvgGPA(gradeTypeArray, isWeighted) {
 }
 
 //it just works......
+
+const gpastuff = [[100.0, "ap"], [100.0, "ap"], [100.0, "ap"], [100.0, "ap"]];
+
+let newthing = convertToFourScale(gpastuff);
+console.log(newthing);
+console.log(calcAvgGPA(newthing, true));
+
+function 
