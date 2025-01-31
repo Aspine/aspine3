@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import GetGrades from '../components/GetGrades.jsx';
+
 export const prerender = true;
 
 // JSESSIONID is not gonna be in localstorage, this is just for testing as of right now
@@ -23,4 +25,6 @@ export const prerender = true;
 
 	<a href="/"><button>shut up leo</button></a>
 	Hey hunty-punty, make this look not shitty
+
+	<GetGrades client:load />
 </Layout>
