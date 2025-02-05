@@ -88,4 +88,6 @@ function getType(className) {
 	return typing;
 }
 
-function buildGradeTypeArray(roughTypeArray) {}
+function directions(roomNumber) {
+	
+}
