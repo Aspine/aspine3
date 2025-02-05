@@ -9,18 +9,20 @@ import GetGrades from '../components/GetGrades.jsx';
 	favicon="/favicon.svg"
 	bodyClasses="bg-[var(--bg-color)] text-[var(--secondary-color)] overflow-x-hidden"
 >
-	<a href="/"><button>shut up leo</button></a>
-
-	<GetGrades client:load jsessionId={undefined} />
+	<a href="/">
+		<button> shut up leo </button>
+	</a>
 
 	<script>
 		document.addEventListener('DOMContentLoaded', () => {
-			if (!document.cookie) {
+			const cookieString = document.cookie;
+			if (!cookieString) {
+				console.error('No cookies found, redirecting to login page...');
 				window.location.href = '/login';
 				return;
 			}
 
-			const jsessionId = document.cookie
+			const jsessionId = cookieString
 				.split('; ')
 				.find(row => row.startsWith('JSESSIONID='))
 				?.split('=')[1];
@@ -32,14 +34,8 @@ import GetGrades from '../components/GetGrades.jsx';
 				window.location.href = '/login';
 				return;
 			}
-
-			window.jsessionId = jsessionId;
-
-			const getGradesComponent = document.querySelector('get-grades');
-			if (getGradesComponent) {
-				// not being passed to jsx, need to reload jsx island after jsessionid is defined
-				getGradesComponent.setAttribute('jsessionId', jsessionId);
-			}
 		});
 	</script>
+
+	<GetGrades client:load />
 </Layout>

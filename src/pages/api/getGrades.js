@@ -24,24 +24,16 @@ export async function POST({ request, url }) {
 		});
 
 		await page.goto(
-			'https://aspen.cpsd.us/aspen/calendarWidget.do?groupPageWidgetOid=GPW0000010B09h&widgetId=calendar_1&groupPageWidgetOid=GPW0000010B09h&1738346395076'
+			'https://aspen.cpsd.us/aspen/portalClassList.do?navkey=academics.classes.list'
 		);
 
-		await page.waitForNavigation();
-
-		// only work if its cpsd.us, there are some edge cases where it was trying to load the wrong url and hanging
-		const currentUrl = page.url();
-
-		// store the session id as a cookie
-
-		console.log('JSESSIONID:', jsessionid);
+		const html = await page.content();
 
 		await browser.close();
 
-		// return the session
-		return new Response(JSON.stringify({ jsessionid }), {
+		return new Response(html, {
 			status: 200,
-			headers: { 'Content-Type': 'application/json' }
+			headers: { 'Content-Type': 'text/plain' }
 		});
 	} catch (error) {
 		console.error('puppet not happy :c so heres the error:', error);

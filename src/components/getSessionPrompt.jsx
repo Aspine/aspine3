@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 
 // no comments. Its react
 const GetSessionPrompt = () => {
@@ -7,6 +7,25 @@ const GetSessionPrompt = () => {
 	const [password, setPassword] = useState('');
 	const [loading, setLoading] = useState(false);
 	const [sessionid, setSessionid] = useState('');
+
+	useEffect(() => {
+		const sessionViewer = document.getElementById('sessionViewer');
+
+		const callback = (mutationList, observer) => {
+			if (mutationList.length > 0) {
+				window.location.href = '/dash';
+			}
+		};
+
+		const observer = new MutationObserver(callback);
+
+		observer.observe(sessionViewer, {
+			childList: true,
+			attributes: true,
+			characterData: true,
+			subtree: true
+		});
+	}, []);
 
 	const handleSubmit = async event => {
 		event.preventDefault();
@@ -66,7 +85,7 @@ const GetSessionPrompt = () => {
 				<button type="submit" disabled={loading}>
 					{loading ? 'Logging in...' : 'Submit'}
 				</button>
-				<div>{sessionid}</div>
+				<div id="sessionViewer">{sessionid}</div>
 			</div>
 		</form>
 	);
