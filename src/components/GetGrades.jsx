@@ -1,32 +1,37 @@
 import { h } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 
-const GetGrades = ({ jsessionId }) => {
+const GetGrades = () => {
 	const [grades, setGrades] = useState(null);
 	const [loading, setLoading] = useState(false);
+	const [jsessionId, setJsessionId] = useState('');
+
+	useEffect(() => {
+		const cookieString = document.cookie;
+
+		const jsessionId = cookieString
+			.split('; ')
+			.find(row => row.startsWith('JSESSIONID='))
+			?.split('=')[1];
+
+		setJsessionId(jsessionId);
+	}, []);
 
 	const handleSubmit = async event => {
 		event.preventDefault();
 		setLoading(true);
 		try {
-			const response = await fetch(
+			await fetch(
 				`/api/getGrades?headless=false&jsessionid=${jsessionId}`,
 				{
 					method: 'POST',
 					headers: {
-						'Content-Type': 'application/json'
+						'Content-Type': 'text/plain'
 					}
 				}
-			);
-
-			if (!response.ok) {
-				throw new Error(`HTTP error! status: ${response.status}`);
-			}
-
-			const data = await response.json();
-			console.log('JSESSIONID:', data.jsessionid);
-			setSessionid(data.jsessionid);
-			document.cookie = `JSESSIONID=${data.jsessionid}; max-age=${30 * 60}; path=/;`;
+			)
+				.then(res => res.text())
+				.then(txt => setGrades(txt));
 		} catch (error) {
 			console.error('Error fetching JSESSIONID:', error);
 		} finally {
@@ -42,6 +47,7 @@ const GetGrades = ({ jsessionId }) => {
 					{loading ? 'Loading...' : 'Get Grades'}
 				</button>
 			</form>
+			<div>{grades}</div>
 		</>
 	);
 };
