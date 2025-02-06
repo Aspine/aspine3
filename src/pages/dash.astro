@@ -11,28 +11,28 @@ import Navbar from '../components/Navbar.astro';
 	bodyClasses="bg-[var(--bg-color)] text-[var(--secondary-color)] overflow-x-hidden"
 >
 	<Navbar />
-		<a href="/"><button>shut up leo</button></a>
-		<p>helloo</p>
-		<table>
-			<tr>
-				<th>Class name</th>
-				<th>Room Number</th>
-				<th>Course ID</th>
-				<th>Grade</th>
-			</tr>
-		</table>
-		<img
-			class="size-12"
-			src="https://plus.unsplash.com/premium_photo-1661627681947-4431c8c97659?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29vbCUyMGd1eXxlbnwwfHwwfHx8MA%3D%3D"
-			alt="cool guy"
-		/>
-	
+	<a href="/"><button>shut up leo</button></a>
+	<p>helloo</p>
+	<table>
+		<tr>
+			<th>Class name</th>
+			<th>Room Number</th>
+			<th>Course ID</th>
+			<th>Grade</th>
+		</tr>
+	</table>
+	<img
+		class="size-12"
+		src="https://plus.unsplash.com/premium_photo-1661627681947-4431c8c97659?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29vbCUyMGd1eXxlbnwwfHwwfHx8MA%3D%3D"
+		alt="cool guy"
+	/>
+
 	<script>
 		document.addEventListener('DOMContentLoaded', () => {
 			const cookieString = document.cookie;
 			if (!cookieString) {
 				console.error('No cookies found, redirecting to login page...');
-				window.location.href = '/login'; 
+				window.location.href = '/login';
 				return;
 			}
 

@@ -22,6 +22,7 @@ const GetGrades = () => {
 		setLoading(true);
 		try {
 			await fetch(
+				// Encrypt jsessionids on the client later on, and have the server decrypt them
 				`/api/getGrades?headless=false&jsessionid=${jsessionId}`,
 				{
 					method: 'POST',

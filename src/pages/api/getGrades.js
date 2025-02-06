@@ -29,9 +29,20 @@ export async function POST({ request, url }) {
 
 		const html = await page.content();
 
+		const hrefValue = ``;
+		const regex = new RegExp(
+			`<a[^>]*href="${hrefValue}"[^>]*>(.*?)<\/a>([\\s\\S]*?)(<[^>]+>[\\s\\S]*?<\\/[^>]+>)([\\s\\S]*?)(<[^>]+>[\\s\\S]*?<\\/[^>]+>)`
+		);
+		const match = html.match(regex);
+
+		let extractedHtml = '';
+		if (match) {
+			extractedHtml = match[3] + match[5];
+		}
+
 		await browser.close();
 
-		return new Response(html, {
+		return new Response(extractedHtml, {
 			status: 200,
 			headers: { 'Content-Type': 'text/plain' }
 		});
