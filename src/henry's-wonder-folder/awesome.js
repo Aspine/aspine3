@@ -88,6 +88,4 @@ function getType(className) {
 	return typing;
 }
 
-function directions(roomNumber) {
-	
-}
+function directions(roomNumber) {}
