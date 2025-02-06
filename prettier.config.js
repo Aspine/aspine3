@@ -15,6 +15,7 @@ const config = {
 	proseWrap: 'always',
 	plugins: [tailwindcss, prettierPluginAstro],
 	tailwindConfig: './tailwind.config.mjs',
+	endOfLine: 'lf',
 	overrides: [
 		{
 			files: '**/*.astro',
