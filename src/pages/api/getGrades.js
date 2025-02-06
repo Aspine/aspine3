@@ -29,9 +29,13 @@ export async function POST({ request, url }) {
 
 		const html = await page.content();
 
-		const hrefValue = ``;
+		const hrefValue = `javascript:doParamSubmit(2100, document.forms['classListForm']`;
+		const escapedHrefValue = hrefValue.replace(
+			/[.*+?^${}()|[\]\\]/g,
+			'\\$&'
+		);
 		const regex = new RegExp(
-			`<a[^>]*href="${hrefValue}"[^>]*>(.*?)<\/a>([\\s\\S]*?)(<[^>]+>[\\s\\S]*?<\\/[^>]+>)([\\s\\S]*?)(<[^>]+>[\\s\\S]*?<\\/[^>]+>)`
+			`<a[^>]*href="${escapedHrefValue}"[^>]*>(.*?)<\/a>([\\s\\S]*?)(<[^>]+>[\\s\\S]*?<\\/[^>]+>)([\\s\\S]*?)(<[^>]+>[\\s\\S]*?<\\/[^>]+>)`
 		);
 		const match = html.match(regex);
 
