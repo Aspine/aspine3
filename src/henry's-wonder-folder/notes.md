@@ -43,5 +43,28 @@ sec-ch-ua-platform: "Windows"
 
 
 IMPORTANT THING:
-href="javascript:doParamSubmit(2100, document.forms['classListForm']
+<a href="javascript:doParamSubmit(2100, document.forms['classListForm'], 'SSC00000131nTP')">L412-002</a>
 REMEMBVERdsfsdfdfsdsf
+
+REMEVERBER THIS CODE:
+2
+6
+22
+1
+2
+1
+1
+3
+1
+0
+3
+45
+1
+1
+    2   4   6   8   10  12  14
+    11  15  
+    0   0
+11 0 for class name
+15 0 for grade
+---
+

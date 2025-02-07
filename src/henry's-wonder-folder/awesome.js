@@ -26,7 +26,8 @@ function convertToFourScale(gradeTypeArray) {
 				gpa = scale.gpa;
 				break;
 			}
-		}
+		}+
+		
 		convertedGrades.push([gpa, classType]);
 	}
 	return convertedGrades;
