@@ -29,7 +29,7 @@ export async function POST({ request, url }) {
 		);
 
 		const html = await page.content();
-		const json = htmlTableToJson(html);
+		const json = htmlToJson(html);
 
 		await browser.close();
 
@@ -47,33 +47,34 @@ export async function POST({ request, url }) {
 	}
 }
 
-function htmlTableToJson(html) {
+function htmlToJson(html) {
 	const dom = new JSDOM(html);
 	const document = dom.window.document;
-	const tables = document.querySelectorAll('table');
-	const jsonTables = [];
 
-	tables.forEach(table => {
-		const headers = [];
-		const rows = [];
-		const headerElements = table.querySelectorAll('thead th');
-		const rowElements = table.querySelectorAll('tbody tr');
+	function elementToJson(element) {
+		// none of this makes any sense idk how it works but it does
+		const obj = {
+			tag: element.tagName.toLowerCase(),
+			attributes: {},
+			children: []
+		};
 
-		headerElements.forEach(header => {
-			headers.push(header.textContent.trim());
-		});
+		for (let attr of element.attributes) {
+			obj.attributes[attr.name] = attr.value;
+		}
 
-		rowElements.forEach(row => {
-			const cells = row.querySelectorAll('td');
-			const rowData = {};
-			cells.forEach((cell, index) => {
-				rowData[headers[index]] = cell.textContent.trim();
-			});
-			rows.push(rowData);
-		});
+		for (let child of element.childNodes) {
+			if (child.nodeType === 3) {
+				obj.children.push({
+					text: child.textContent.trim()
+				});
+			} else if (child.nodeType === 1) {
+				obj.children.push(elementToJson(child));
+			}
+		}
 
-		jsonTables.push(rows);
-	});
+		return obj;
+	}
 
-	return JSON.stringify(jsonTables, null, 2);
+	return JSON.stringify(elementToJson(document.documentElement), null, 2);
 }
