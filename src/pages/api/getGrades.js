@@ -1,5 +1,6 @@
 import puppeteer from 'puppeteer';
 import UserAgent from 'user-agents';
+import { JSDOM } from 'jsdom';
 
 export async function POST({ request, url }) {
 	const userAgent = new UserAgent({ deviceCategory: 'desktop' });
@@ -28,27 +29,13 @@ export async function POST({ request, url }) {
 		);
 
 		const html = await page.content();
-
-		const hrefValue = `javascript:doParamSubmit(2100, document.forms['classListForm']`;
-		const escapedHrefValue = hrefValue.replace(
-			/[.*+?^${}()|[\]\\]/g,
-			'\\$&'
-		);
-		const regex = new RegExp(
-			`<a[^>]*href="${escapedHrefValue}"[^>]*>(.*?)<\/a>([\\s\\S]*?)(<[^>]+>[\\s\\S]*?<\\/[^>]+>)([\\s\\S]*?)(<[^>]+>[\\s\\S]*?<\\/[^>]+>)`
-		);
-		const match = html.match(regex);
-
-		let extractedHtml = '';
-		if (match) {
-			extractedHtml = match[3] + match[5];
-		}
+		const json = htmlTableToJson(html);
 
 		await browser.close();
 
-		return new Response(extractedHtml, {
+		return new Response(json, {
 			status: 200,
-			headers: { 'Content-Type': 'text/plain' }
+			headers: { 'Content-Type': 'application/json' }
 		});
 	} catch (error) {
 		console.error('puppet not happy :c so heres the error:', error);
@@ -58,4 +45,35 @@ export async function POST({ request, url }) {
 			headers: { 'Content-Type': 'application/json' }
 		});
 	}
+}
+
+function htmlTableToJson(html) {
+	const dom = new JSDOM(html);
+	const document = dom.window.document;
+	const tables = document.querySelectorAll('table');
+	const jsonTables = [];
+
+	tables.forEach(table => {
+		const headers = [];
+		const rows = [];
+		const headerElements = table.querySelectorAll('thead th');
+		const rowElements = table.querySelectorAll('tbody tr');
+
+		headerElements.forEach(header => {
+			headers.push(header.textContent.trim());
+		});
+
+		rowElements.forEach(row => {
+			const cells = row.querySelectorAll('td');
+			const rowData = {};
+			cells.forEach((cell, index) => {
+				rowData[headers[index]] = cell.textContent.trim();
+			});
+			rows.push(rowData);
+		});
+
+		jsonTables.push(rows);
+	});
+
+	return JSON.stringify(jsonTables, null, 2);
 }

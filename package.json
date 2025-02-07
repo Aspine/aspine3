@@ -32,6 +32,7 @@
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.1",
 		"express": "^4.19.2",
+		"jsdom": "^26.0.0",
 		"lucide-preact": "^0.427.0",
 		"lucide-react": "^0.428.0",
 		"node-fetch": "^3.3.2",
