@@ -48,7 +48,40 @@ const GetGrades = () => {
 					{loading ? 'Loading...' : 'Get Grades'}
 				</button>
 			</form>
-			<div>{grades}</div>
+			<div>
+				<br />
+
+				{grades}
+				<br />
+				<br />
+				{grades &&
+					grades.length > 0 &&
+					grades
+						.split('","')
+						.map(item => item.replace(/(^"|"$)/g, ''))
+						.reduce((acc, item, index, arr) => {
+							if (index % 2 === 0) {
+								try {
+									const className = JSON.parse(
+										item.replace(/\\/g, '')
+									).text;
+									const grade = JSON.parse(
+										arr[index + 1].replace(/\\/g, '')
+									).text;
+									acc.push([className, grade]);
+								} catch (e) {
+									console.error('Error parsing JSON:', e);
+								}
+							}
+							return acc;
+						}, [])
+						.map((grade, idx) => (
+							<div key={idx}>
+								<span>{grade[0]}</span>: <span>{grade[1]}</span>
+								{localStorage.setItem(`${grade[0]}`, grade[1])}
+							</div>
+						))}
+			</div>
 		</>
 	);
 };
