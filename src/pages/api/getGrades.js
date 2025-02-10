@@ -29,7 +29,91 @@ export async function POST({ request, url }) {
 		);
 
 		const html = await page.content();
-		const json = htmlToJson(html);
+		const parsedHTML = htmlToJson(html);
+
+		const getAllGrades = () => {
+			const grades = [];
+			const classes = [
+				getJSONPath(
+					parsedHTML,
+					[2, 6, 22, 1, 2, 1, 1, 3, 1, 0, 3, 45, 1, 1, 2]
+				),
+				getJSONPath(
+					parsedHTML,
+					[2, 6, 22, 1, 2, 1, 1, 3, 1, 0, 3, 45, 1, 1, 4]
+				),
+				getJSONPath(
+					parsedHTML,
+					[2, 6, 22, 1, 2, 1, 1, 3, 1, 0, 3, 45, 1, 1, 6]
+				),
+				getJSONPath(
+					parsedHTML,
+					[2, 6, 22, 1, 2, 1, 1, 3, 1, 0, 3, 45, 1, 1, 8]
+				),
+				getJSONPath(
+					parsedHTML,
+					[2, 6, 22, 1, 2, 1, 1, 3, 1, 0, 3, 45, 1, 1, 10]
+				),
+				getJSONPath(
+					parsedHTML,
+					[2, 6, 22, 1, 2, 1, 1, 3, 1, 0, 3, 45, 1, 1, 12]
+				),
+				getJSONPath(
+					parsedHTML,
+					[2, 6, 22, 1, 2, 1, 1, 3, 1, 0, 3, 45, 1, 1, 14]
+				)
+			].filter(item => item !== 'null');
+
+			for (let i = 0; i < classes.length; i++) {
+				const className = JSON.stringify(
+					getJSONPath(parsedHTML, [
+						2,
+						6,
+						22,
+						1,
+						2,
+						1,
+						1,
+						3,
+						1,
+						0,
+						3,
+						45,
+						1,
+						1,
+						(i + 1) * 2,
+						11,
+						0
+					])
+				);
+				const grade = JSON.stringify(
+					getJSONPath(parsedHTML, [
+						2,
+						6,
+						22,
+						1,
+						2,
+						1,
+						1,
+						3,
+						1,
+						0,
+						3,
+						45,
+						1,
+						1,
+						(i + 1) * 2,
+						15,
+						0
+					])
+				);
+				grades.push([className, grade]);
+			}
+
+			return grades;
+		};
+
+		const json = getAllGrades();
 
 		await browser.close();
 
@@ -40,10 +124,13 @@ export async function POST({ request, url }) {
 	} catch (error) {
 		console.error('puppet not happy :c so heres the error:', error);
 		await browser.close();
-		return new Response(JSON.stringify({ error: 'something went wrong' }), {
-			status: 500,
-			headers: { 'Content-Type': 'application/json' }
-		});
+		return new Response(
+			JSON.stringify({ error: `something went wrong ${error}` }),
+			{
+				status: 500,
+				headers: { 'Content-Type': 'application/json' }
+			}
+		);
 	}
 }
 
@@ -51,7 +138,7 @@ function htmlToJson(html) {
 	const dom = new JSDOM(html);
 	const document = dom.window.document;
 
-	function elementToJson(element) {
+	function elementToJSON(element) {
 		// none of this makes any sense idk how it works but it does
 		const obj = {
 			tag: element.tagName.toLowerCase(),
@@ -69,12 +156,24 @@ function htmlToJson(html) {
 					text: child.textContent.trim()
 				});
 			} else if (child.nodeType === 1) {
-				obj.children.push(elementToJson(child));
+				obj.children.push(elementToJSON(child));
 			}
 		}
 
 		return obj;
 	}
 
-	return JSON.stringify(elementToJson(document.documentElement), null, 2);
+	return JSON.stringify(elementToJSON(document.documentElement));
+}
+
+function getJSONPath(json, path) {
+	let element = JSON.parse(json);
+	for (let index of path) {
+		if (element.children && element.children[index]) {
+			element = element.children[index];
+		} else {
+			return null;
+		}
+	}
+	return JSON.stringify(element);
 }
