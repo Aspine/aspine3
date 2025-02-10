@@ -27,7 +27,7 @@ function convertToFourScale(gradeTypeArray) {
 				break;
 			}
 		}
-		+convertedGrades.push([gpa, classType]);
+		+convertedGrades.push([classType, gpa]);
 	}
 	return convertedGrades;
 }
@@ -37,38 +37,25 @@ function calcAvgGPA(gradeTypeArray, isWeighted) {
 
 	for (i in gradeTypeArray) {
 		if (isWeighted == true) {
-			switch (gradeTypeArray[i][1].toLowerCase()) {
+			switch (gradeTypeArray[i][0].toLowerCase()) {
 				case 'ap':
-					avgGPA += gradeTypeArray[i][0] + 1.0;
+					avgGPA += gradeTypeArray[i][1] + 1.0;
 					break;
 				case 'hn':
-					avgGPA += gradeTypeArray[i][0] + 0.5;
+					avgGPA += gradeTypeArray[i][1] + 0.5;
 					break;
 				case 'rg':
-					avgGPA += gradeTypeArray[i][0];
+					avgGPA += gradeTypeArray[i][1];
 					break;
 				default:
 					throw new Error(`Invalid typing (${gradeTypeArray[i][1]})`);
 			}
 		} else {
-			avgGPA += gradeTypeArray[i][0];
+			avgGPA += gradeTypeArray[i][1];
 		}
 	}
 	return avgGPA / gradeTypeArray.length;
 }
-
-//it just works......
-
-const gpastuff = [
-	[100.0, 'ap'],
-	[100.0, 'ap'],
-	[100.0, 'ap'],
-	[100.0, 'ap']
-];
-
-let newthing = convertToFourScale(gpastuff);
-console.log(newthing);
-console.log(calcAvgGPA(newthing, true));
 
 function getType(className) {
 	let typing;
@@ -88,4 +75,4 @@ function getType(className) {
 	return typing;
 }
 
-function directions(roomNumber) {}
+function simplifyText(gorted) {}

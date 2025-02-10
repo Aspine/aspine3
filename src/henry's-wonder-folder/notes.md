@@ -62,9 +62,20 @@ REMEVERBER THIS CODE:
 1
 1
     2   4   6   8   10  12  14
-    11  15  
-    0   0
+
+    3   5   7   9   11  13  15  17  19  21
+    1   0   0   0   0   0   0   0   0   0
+    0
+
 11 0 for class name
 15 0 for grade
+5 0 for semesterly or FY
+7 0 for teachers
+9 0 for room number
+13 0 for start date
+17 0 for abs
+19 0 for tdy
+21 0 for dsm
+3 1 0 for course ID
 ---
 
