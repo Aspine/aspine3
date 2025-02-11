@@ -5,6 +5,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 	const [returnItem, setReturnItem] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [jsessionId, setJsessionId] = useState('');
+	const headless = true;
 
 	useEffect(() => {
 		const cookieString = document.cookie;
@@ -23,7 +24,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 				case 'grades':
 					fetch(
 						// TODO: Encrypt jsessionids on the client later on, and have the server decrypt them
-						`/api/getGrades?headless=false&jsessionid=${jsessionId}`,
+						`/api/getGrades?headless=${headless}&jsessionid=${jsessionId}`,
 						{
 							method: 'POST',
 							headers: {
@@ -37,7 +38,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 					break;
 				case 'courses':
 					fetch(
-						`/api/getCourse?headless=false&jsessionid=${jsessionId}`,
+						`/api/getCourse?headless=${headless}&jsessionid=${jsessionId}`,
 						{
 							method: 'POST',
 							headers: {
@@ -51,7 +52,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 					break;
 				case 'length':
 					fetch(
-						`/api/getLength?headless=false&jsessionid=${jsessionId}`,
+						`/api/getLength?headless=${headless}&jsessionid=${jsessionId}`,
 						{
 							method: 'POST',
 							headers: {
@@ -65,7 +66,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 					break;
 				case 'roomNumbers':
 					fetch(
-						`/api/getRoom?headless=false&jsessionid=${jsessionId}`,
+						`/api/getRoom?headless=${headless}&jsessionid=${jsessionId}`,
 						{
 							method: 'POST',
 							headers: {
@@ -79,7 +80,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 					break;
 				case 'startDate':
 					fetch(
-						`/api/getStartDate?headless=false&jsessionid=${jsessionId}`,
+						`/api/getStartDate?headless=${headless}&jsessionid=${jsessionId}`,
 						{
 							method: 'POST',
 							headers: {
@@ -93,7 +94,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 					break;
 				case 'teachers':
 					fetch(
-						`/api/getTeachers?headless=false&jsessionid=${jsessionId}`,
+						`/api/getTeachers?headless=${headless}&jsessionid=${jsessionId}`,
 						{
 							method: 'POST',
 							headers: {
@@ -107,7 +108,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 					break;
 				case 'attendance':
 					fetch(
-						`/api/getAttendance?headless=false&jsessionid=${jsessionId}`,
+						`/api/getAttendance?headless=${headless}&jsessionid=${jsessionId}`,
 						{
 							method: 'POST',
 							headers: {

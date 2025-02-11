@@ -1,12 +1,12 @@
 import { h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 
-// no comments. Its react
 const GetSessionPrompt = () => {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [loading, setLoading] = useState(false);
 	const [sessionid, setSessionid] = useState('');
+	const headless = true;
 
 	useEffect(() => {
 		const sessionViewer = document.getElementById('sessionViewer');
@@ -32,13 +32,16 @@ const GetSessionPrompt = () => {
 		setLoading(true);
 
 		try {
-			const response = await fetch(`/api/getSession?headless=false`, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({ username, password })
-			});
+			const response = await fetch(
+				`/api/getSession?headless=${headless}`,
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({ username, password })
+				}
+			);
 
 			if (!response.ok) {
 				throw new Error(`HTTP error! status: ${response.status}`);

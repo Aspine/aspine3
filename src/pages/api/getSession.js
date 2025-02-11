@@ -13,7 +13,7 @@ export async function POST({ request, url }) {
 
 	await page.setUserAgent(userAgent.random().toString());
 
-	/** THIS IS WHAT A CAPTCHA LOOKS LIKE:
+	/* THIS IS WHAT A CAPTCHA LOOKS LIKE:
 		<img
 			jsname="O9Milc"
 			alt="CAPTCHA image of text used to distinguish humans from robots"
@@ -35,29 +35,24 @@ export async function POST({ request, url }) {
 	 */
 
 	try {
-		await page.setDefaultNavigationTimeout(60000); // increase the timeout cus aspen be slow
+		await page.setDefaultNavigationTimeout(60000);
 
-		// nice thing of aspen to make a page just to redirect to the write sso link
 		await page.goto(
 			'https://aspen.cpsd.us/aspen/logonSSO.do?deploymentId=ma-cambridge&districtId=*dst&idpName=Cambridge%20Google%20SAML'
 		);
 
-		// because its google sso, input the email
 		await page.waitForSelector('input[type="email"]');
 
 		await page.type('input[type="email"]', username);
 		await page.keyboard.press('Enter');
 
-		// input password once it exists on the page
 		await page.waitForSelector('input[type="password"]', { visible: true });
 
 		await page.type('input[type="password"]', password);
 		await page.keyboard.press('Enter');
 
-		// wait for it to go back to aspen
 		await page.waitForNavigation();
 
-		// only work if its cpsd.us, there are some edge cases where it was trying to load the wrong url and hanging
 		const currentUrl = page.url();
 		if (currentUrl.includes('.cpsd.us')) {
 			const cookies = await page.cookies();
