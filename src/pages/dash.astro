@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import GetGrades from '../components/GetGrades.jsx';
-import Navbar from '../components/Navbar.astro';
+import GetInfo from '../components/GetInfo.jsx';
+import Navbar from '../components/Dashbar.astro';
 ---
 
 <Layout
@@ -21,11 +21,6 @@ import Navbar from '../components/Navbar.astro';
 			<th>Grade</th>
 		</tr>
 	</table>
-	<img
-		class="size-12"
-		src="https://plus.unsplash.com/premium_photo-1661627681947-4431c8c97659?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29vbCUyMGd1eXxlbnwwfHwwfHx8MA%3D%3D"
-		alt="cool guy"
-	/>
 
 	<script>
 		document.addEventListener('DOMContentLoaded', () => {
@@ -50,6 +45,15 @@ import Navbar from '../components/Navbar.astro';
 			}
 		});
 	</script>
-
-	<GetGrades client:load />
+	<br />
+	<br />
+	<br />
+	<br />
+	<GetInfo client:load callType="grades" />
+	<GetInfo client:load callType="courses" />
+	<GetInfo client:load callType="length" />
+	<GetInfo client:load callType="roomNumbers" />
+	<GetInfo client:load callType="startDate" />
+	<GetInfo client:load callType="teachers" />
+	<GetInfo client:load callType="attendance" />
 </Layout>

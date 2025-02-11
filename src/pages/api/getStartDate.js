@@ -5,8 +5,8 @@ export async function POST({ request, url }) {
 	const link =
 		'https://aspen.cpsd.us/aspen/portalClassList.do?navkey=academics.classes.list';
 
-	const getGrades = (classesJSON, getJSONPath) => {
-		const grades = [];
+	const getStartDate = (classesJSON, getJSONPath) => {
+		const startDates = [];
 		const classes = [
 			getJSONPath(classesJSON, [2]),
 			getJSONPath(classesJSON, [4]),
@@ -21,14 +21,21 @@ export async function POST({ request, url }) {
 			const className = JSON.stringify(
 				getJSONPath(classesJSON, [(i + 1) * 2, 11, 0])
 			);
-			const grade = JSON.stringify(
-				getJSONPath(classesJSON, [(i + 1) * 2, 15, 0])
+			const startDate = JSON.stringify(
+				getJSONPath(classesJSON, [(i + 1) * 2, 13, 0])
 			);
-			grades.push([className, grade]);
+			startDates.push([className, startDate]);
 		}
 
-		return grades;
+		return startDates;
 	};
 
-	return fetchData(url, jsessionId, link, getJSONPath, htmlToJson, getGrades);
+	return fetchData(
+		url,
+		jsessionId,
+		link,
+		getJSONPath,
+		htmlToJson,
+		getStartDate
+	);
 }
