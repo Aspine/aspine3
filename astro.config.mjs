@@ -1,10 +1,9 @@
 import { defineConfig } from 'astro/config';
+import node from '@astrojs/node';
+import tailwind from '@astrojs/tailwind';
+import preact from '@astrojs/preact';
 import chalk from 'chalk';
 import { hostname } from 'os';
-import tailwind from '@astrojs/tailwind';
-import node from '@astrojs/node';
-
-import preact from '@astrojs/preact';
 
 // https://astro.build/config
 export default defineConfig({
