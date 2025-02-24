@@ -48,7 +48,7 @@ function calcAvgGPA(gradeTypeArray, isWeighted) {
 					avgGPA += gradeTypeArray[i][1];
 					break;
 				default:
-					throw new Error(`Invalid typing (${gradeTypeArray[i][1]})`);
+					throw new Error(`Invalid typing (${gradeTypeArray[i][0]})`);
 			}
 		} else {
 			avgGPA += gradeTypeArray[i][1];
@@ -59,6 +59,7 @@ function calcAvgGPA(gradeTypeArray, isWeighted) {
 
 function getType(className) {
 	let typing;
+	
 	className = className.toLowerCase();
 	if (typeof className === string) {
 		if (className.includes('honors')) {
@@ -75,4 +76,4 @@ function getType(className) {
 	return typing;
 }
 
-function simplifyText(gorted) {}
+
