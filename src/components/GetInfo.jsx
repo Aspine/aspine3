@@ -18,9 +18,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 		setJsessionId(jsessionId);
 
 		setLoading(true);
-		/*
-			"{\"text\":\"AP Chemistry\"}","{\"text\":\"87.86 B+\"}","{\"text\":\"Computer Science 2 Honors\"}","{\"text\":\"91.24 A-\"}","{\"text\":\"AP Calculus BC\"}","{\"text\":\"\"}","{\"text\":\"Falcon Block\"}","{\"text\":\"\"}","{\"text\":\"PE RSTA\"}","{\"text\":\"\"}","{\"text\":\"Balance Block\"}","{\"text\":\"\"}","{\"text\":\"English 10\"}","{\"text\":\"76.5 C+\"}"
-		*/
+
 		try {
 			switch (callType) {
 				case 'grades':
@@ -36,6 +34,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 					)
 						.then(res => res.text())
 						.then(str => {
+							console.log('Raw Response Grades:', str);
 							const matches = [
 								...str.matchAll(/\{\\"text\\":\\"(.*?)\\"\}/g)
 							];
@@ -73,6 +72,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 					)
 						.then(res => res.text())
 						.then(str => {
+							console.log('Raw Response Courses:', str);
 							const matches = [
 								...str.matchAll(/\{\\"text\\":\\"(.*?)\\"\}/g)
 							];
@@ -110,6 +110,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 					)
 						.then(res => res.text())
 						.then(str => {
+							console.log('Raw Response Length:', str);
 							const matches = [
 								...str.matchAll(/\{\\"text\\":\\"(.*?)\\"\}/g)
 							];
@@ -147,6 +148,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 					)
 						.then(res => res.text())
 						.then(str => {
+							console.log('Raw Response Room Number:', str);
 							const matches = [
 								...str.matchAll(/\{\\"text\\":\\"(.*?)\\"\}/g)
 							];
@@ -184,6 +186,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 					)
 						.then(res => res.text())
 						.then(str => {
+							console.log('Raw Response Start Date:', str);
 							const matches = [
 								...str.matchAll(/\{\\"text\\":\\"(.*?)\\"\}/g)
 							];
@@ -221,6 +224,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 					)
 						.then(res => res.text())
 						.then(str => {
+							console.log('Raw Response Teachers:', str);
 							const matches = [
 								...str.matchAll(/\{\\"text\\":\\"(.*?)\\"\}/g)
 							];
@@ -258,7 +262,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 					)
 						.then(res => res.text())
 						.then(str => {
-							console.log('Raw response:', str);
+							console.log('Raw Response Attendance:', str);
 							const matches = [
 								...str.matchAll(/\{\\"text\\":\\"(.*?)\\"\}/g)
 							];
@@ -294,34 +298,26 @@ const GetInfo = ({ callType = 'grades' }) => {
 	return (
 		<div>
 			{loading && <div>Loading...</div>}
-			{returnItem}
-			{/* {grades &&
-				grades.length > 0 &&
-				grades
-					.split('","')
-					.map(item => item.replace(/(^"|"$)/g, ''))
-					.reduce((acc, item, index, arr) => {
-						if (index % 2 === 0) {
-							try {
-								const className = JSON.parse(
-									item.replace(/\\/g, '')
-								).text;
-								const grade = JSON.parse(
-									arr[index + 1].replace(/\\/g, '')
-								).text;
-								acc.push([className, grade]);
-							} catch (e) {
-								console.error('Error parsing JSON:', e);
-							}
-						}
-						return acc;
-					}, [])
-					.map((grade, idx) => (
-						<div key={idx} id={`classIndex-${idx}`}>
-							<span>{grade[0]}</span>: <span>{grade[1]}</span>
-							{localStorage.setItem(`${grade[0]}`, grade[1])}
+			{returnItem && <pre>{returnItem}</pre>}
+			{returnItem &&
+				callType != 'attendance' &&
+				Object.entries(JSON.parse(returnItem)).map(
+					([course, value]) => (
+						<div key={course}>
+							{course}: {value}
 						</div>
-					))} */}
+					)
+				)}
+			{returnItem &&
+				callType === 'attendance' &&
+				Object.entries(JSON.parse(returnItem)).map(
+					([course, { abs, tdy, dsm }]) => (
+						<div key={course}>
+							{course}: Absences: {abs}, Today: {tdy}, Dismissals:{' '}
+							{dsm}
+						</div>
+					)
+				)}
 		</div>
 	);
 };
