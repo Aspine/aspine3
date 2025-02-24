@@ -18,7 +18,9 @@ const GetInfo = ({ callType = 'grades' }) => {
 		setJsessionId(jsessionId);
 
 		setLoading(true);
-
+		/*
+			"{\"text\":\"AP Chemistry\"}","{\"text\":\"87.86 B+\"}","{\"text\":\"Computer Science 2 Honors\"}","{\"text\":\"91.24 A-\"}","{\"text\":\"AP Calculus BC\"}","{\"text\":\"\"}","{\"text\":\"Falcon Block\"}","{\"text\":\"\"}","{\"text\":\"PE RSTA\"}","{\"text\":\"\"}","{\"text\":\"Balance Block\"}","{\"text\":\"\"}","{\"text\":\"English 10\"}","{\"text\":\"76.5 C+\"}"
+		*/
 		try {
 			switch (callType) {
 				case 'grades':
@@ -33,7 +35,30 @@ const GetInfo = ({ callType = 'grades' }) => {
 						}
 					)
 						.then(res => res.text())
-						.then(txt => setReturnItem(txt))
+						.then(str => {
+							const matches = [
+								...str.matchAll(/\{\\"text\\":\\"(.*?)\\"\}/g)
+							];
+							const parsedJSON = JSON.stringify(
+								Object.fromEntries(
+									matches
+										.map(([, text], i, arr) =>
+											i % 2 === 0
+												? [
+														text,
+														arr[i + 1]
+															? arr[i + 1][1]
+															: ''
+													]
+												: null
+										)
+										.filter(Boolean)
+								),
+								null,
+								4
+							);
+							setReturnItem(parsedJSON);
+						})
 						.finally(() => setLoading(false));
 					break;
 				case 'courses':
@@ -47,7 +72,30 @@ const GetInfo = ({ callType = 'grades' }) => {
 						}
 					)
 						.then(res => res.text())
-						.then(txt => setReturnItem(txt))
+						.then(str => {
+							const matches = [
+								...str.matchAll(/\{\\"text\\":\\"(.*?)\\"\}/g)
+							];
+							const parsedJSON = JSON.stringify(
+								Object.fromEntries(
+									matches
+										.map(([, text], i, arr) =>
+											i % 2 === 0
+												? [
+														text,
+														arr[i + 1]
+															? arr[i + 1][1]
+															: ''
+													]
+												: null
+										)
+										.filter(Boolean)
+								),
+								null,
+								4
+							);
+							setReturnItem(parsedJSON);
+						})
 						.finally(() => setLoading(false));
 					break;
 				case 'length':
@@ -61,7 +109,30 @@ const GetInfo = ({ callType = 'grades' }) => {
 						}
 					)
 						.then(res => res.text())
-						.then(txt => setReturnItem(txt))
+						.then(str => {
+							const matches = [
+								...str.matchAll(/\{\\"text\\":\\"(.*?)\\"\}/g)
+							];
+							const parsedJSON = JSON.stringify(
+								Object.fromEntries(
+									matches
+										.map(([, text], i, arr) =>
+											i % 2 === 0
+												? [
+														text,
+														arr[i + 1]
+															? arr[i + 1][1]
+															: ''
+													]
+												: null
+										)
+										.filter(Boolean)
+								),
+								null,
+								4
+							);
+							setReturnItem(parsedJSON);
+						})
 						.finally(() => setLoading(false));
 					break;
 				case 'roomNumbers':
@@ -75,7 +146,30 @@ const GetInfo = ({ callType = 'grades' }) => {
 						}
 					)
 						.then(res => res.text())
-						.then(txt => setReturnItem(txt))
+						.then(str => {
+							const matches = [
+								...str.matchAll(/\{\\"text\\":\\"(.*?)\\"\}/g)
+							];
+							const parsedJSON = JSON.stringify(
+								Object.fromEntries(
+									matches
+										.map(([, text], i, arr) =>
+											i % 2 === 0
+												? [
+														text,
+														arr[i + 1]
+															? arr[i + 1][1]
+															: ''
+													]
+												: null
+										)
+										.filter(Boolean)
+								),
+								null,
+								4
+							);
+							setReturnItem(parsedJSON);
+						})
 						.finally(() => setLoading(false));
 					break;
 				case 'startDate':
@@ -89,7 +183,30 @@ const GetInfo = ({ callType = 'grades' }) => {
 						}
 					)
 						.then(res => res.text())
-						.then(txt => setReturnItem(txt))
+						.then(str => {
+							const matches = [
+								...str.matchAll(/\{\\"text\\":\\"(.*?)\\"\}/g)
+							];
+							const parsedJSON = JSON.stringify(
+								Object.fromEntries(
+									matches
+										.map(([, text], i, arr) =>
+											i % 2 === 0
+												? [
+														text,
+														arr[i + 1]
+															? arr[i + 1][1]
+															: ''
+													]
+												: null
+										)
+										.filter(Boolean)
+								),
+								null,
+								4
+							);
+							setReturnItem(parsedJSON);
+						})
 						.finally(() => setLoading(false));
 					break;
 				case 'teachers':
@@ -103,7 +220,30 @@ const GetInfo = ({ callType = 'grades' }) => {
 						}
 					)
 						.then(res => res.text())
-						.then(txt => setReturnItem(txt))
+						.then(str => {
+							const matches = [
+								...str.matchAll(/\{\\"text\\":\\"(.*?)\\"\}/g)
+							];
+							const parsedJSON = JSON.stringify(
+								Object.fromEntries(
+									matches
+										.map(([, text], i, arr) =>
+											i % 2 === 0
+												? [
+														text,
+														arr[i + 1]
+															? arr[i + 1][1]
+															: ''
+													]
+												: null
+										)
+										.filter(Boolean)
+								),
+								null,
+								4
+							);
+							setReturnItem(parsedJSON);
+						})
 						.finally(() => setLoading(false));
 					break;
 				case 'attendance':
@@ -117,7 +257,25 @@ const GetInfo = ({ callType = 'grades' }) => {
 						}
 					)
 						.then(res => res.text())
-						.then(txt => setReturnItem(txt))
+						.then(str => {
+							console.log('Raw response:', str);
+							const matches = [
+								...str.matchAll(/\{\\"text\\":\\"(.*?)\\"\}/g)
+							];
+							const parsedGrades = {};
+							for (let i = 0; i < matches.length; i += 4) {
+								const [subject, abs, tdy, dsm] = matches
+									.slice(i, i + 4)
+									.map(match => match[1]);
+								parsedGrades[subject] = { abs, tdy, dsm };
+							}
+							const parsedJSON = JSON.stringify(
+								parsedGrades,
+								null,
+								4
+							);
+							setReturnItem(parsedJSON);
+						})
 						.finally(() => setLoading(false));
 					break;
 				default:
@@ -128,7 +286,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 					setLoading(false);
 			}
 		} catch (error) {
-			console.error('Error fetching JSESSIONID:', error);
+			console.error('Error:', error);
 			setLoading(false);
 		}
 	}, []);
