@@ -16,8 +16,8 @@ function convertToFourScale(gradeTypeArray) {
 	const convertedGrades = [];
 
 	for (let i = 0; i < gradeTypeArray.length; i++) {
-		const percentGrade = gradeTypeArray[i][0];
-		const classType = gradeTypeArray[i][1];
+		const percentGrade = gradeTypeArray[i][1];
+		const classType = gradeTypeArray[i][0];
 
 		let gpa = 0.0;
 		for (let j = 0; j < gradeScale.length; j++) {
