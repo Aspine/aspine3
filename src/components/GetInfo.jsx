@@ -298,7 +298,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 	return (
 		<div>
 			{loading && <div>Loading...</div>}
-			{returnItem && <pre>{returnItem}</pre>}
+			{/* {returnItem && <pre>{returnItem}</pre>} */}
 			{returnItem &&
 				callType != 'attendance' &&
 				Object.entries(JSON.parse(returnItem)).map(
@@ -313,8 +313,8 @@ const GetInfo = ({ callType = 'grades' }) => {
 				Object.entries(JSON.parse(returnItem)).map(
 					([course, { abs, tdy, dsm }]) => (
 						<div key={course}>
-							{course}: Absences: {abs}, Today: {tdy}, Dismissals:{' '}
-							{dsm}
+							{course}: Absences: {abs}, Tardies: {tdy},
+							Dismissals: {dsm}
 						</div>
 					)
 				)}

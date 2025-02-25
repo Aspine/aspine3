@@ -59,7 +59,7 @@ function calcAvgGPA(gradeTypeArray, isWeighted) {
 
 function getType(className) {
 	let typing;
-	
+
 	className = className.toLowerCase();
 	if (typeof className === string) {
 		if (className.includes('honors')) {
@@ -75,5 +75,3 @@ function getType(className) {
 
 	return typing;
 }
-
-

@@ -32,6 +32,8 @@ export async function fetchData(
 
 		await page.goto(link);
 
+		// await page.waitForNavigation({ waitUntil: 'load' });
+
 		const html = await page.content();
 		const parsedHTML = htmlToJson(html);
 		const classesJSON = getJSONPath(
