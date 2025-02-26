@@ -322,6 +322,18 @@
 			transparent 50%
 		);
 	}
+
+	.loginbox {
+		display: flex;
+		background-color: #4ade8051;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		border-radius: 16px;
+		margin-top: 5rem;
+		width: calc(100vw / 3);
+		height: calc(100vh / 2);
+	}
 }
 
 @keyframes fade-in-top {

@@ -32,10 +32,16 @@ export const prerender = true;
 		<div
 			class="flex flex-col mx-auto my-[5vh] pt-20 items-center justify-center"
 		>
-			HUNTER MAKE THIS SHIT LOOK BETTER PLEASE
+			<div class="loginbox">
+				<!-- hunter this is for you to make look good -->
+				<div style="height: 32px"></div>
+				<h1 style="font-size: 2rem;">MAKE IT GOOD HUNTER</h1>
+				<div style="height: 48px"></div>
+				<GetSessionPrompt client:load />
+			</div>
 		</div>
 
-		<span class="numberText text-9xl font-[Satoshi-Bold]">Login</span>
+		<!-- <span class="numberText text-9xl font-[Satoshi-Bold]">Login</span> -->
 
 		<div
 			class="blob -z-50 blur-[128px] w-2/5 h-96 bg-[#48c288] absolute -right-64 top-[75vh] rounded-full"
@@ -47,7 +53,6 @@ export const prerender = true;
 		>
 		</div>
 
-		<GetSessionPrompt client:load />
 		<!--
 			client:only="preact" if it doesnt need to render on the server.
 			This only needs to render on the server because I made it append the
