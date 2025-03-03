@@ -34,9 +34,19 @@ export const prerender = true;
 		>
 			<div class="loginbox">
 				<!-- hunter this is for you to make look good -->
-				<div style="height: 32px"></div>
-				<h1 style="font-size: 2rem;">MAKE IT GOOD HUNTER</h1>
-				<div style="height: 48px"></div>
+				<div class="loginbox-title">
+					<p style="font-size: 48px;">Login</p>
+					<p style="font-size: 20px;">to Aspine</p>
+				</div>
+				<div class="loginbox-cred" style="padding-top: 24px;">
+					<p>School Email:</p>
+					<div class="loginbox-cred-in"></div>
+				</div>
+				<div class="loginbox-cred" style="padding-top: 16px;">
+					<p>Password:</p>
+					<div class="loginbox-cred-in"></div>
+				</div>
+
 				<GetSessionPrompt client:load />
 			</div>
 		</div>

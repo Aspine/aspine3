@@ -326,13 +326,31 @@
 	.loginbox {
 		display: flex;
 		background-color: #4ade8051;
-		justify-content: center;
 		flex-direction: column;
-		align-items: center;
-		border-radius: 16px;
+		padding: 2rem;
+		border-radius: 32px;
 		margin-top: 5rem;
-		width: calc(100vw / 3);
-		height: calc(100vh / 2);
+		width: 30rem;
+		height: 38rem;
+	}
+
+	.loginbox-cred {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 80px;
+	}
+
+	.loginbox-cred-in {
+		border-radius: 8px;
+		height: 38px;
+		background-color: white;
+		border: #000c02 2px solid;
+	}
+
+	.loginbox-title {
+		display: flex;
+		flex-direction: column;
 	}
 }
 
