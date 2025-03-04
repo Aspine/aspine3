@@ -84,7 +84,7 @@ const GetSessionPrompt = () => {
 					className="loginbox-cred-in"
 				/>
 			</label>
-			<div>
+			<div class="loginbox-submit">
 				<button type="submit" disabled={loading}>
 					{loading ? 'Logging in...' : 'Submit'}
 				</button>

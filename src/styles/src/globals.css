@@ -346,6 +346,18 @@
 		height: 38px;
 		background-color: white;
 		border: #000c02 2px solid;
+		color: black;
+		padding-left: 0.5rem;
+	}
+
+	.loginbox-submit {
+		display: flex;
+		justify-content: center;
+		height: 24px;
+		background-color: white;
+		color: #000c02;
+		border-radius: 4px;
+		width: calc((2 / 3) * 100%);
 	}
 
 	.loginbox-title {
