@@ -59,31 +59,31 @@ const GetSessionPrompt = () => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<div>
-				<label>
-					Username:
-					<input
-						type="text"
-						value={username}
-						onChange={e => setUsername(e.target.value)}
-						required
-						className="text-black"
-					/>
-				</label>
+		<form onSubmit={handleSubmit} className="loginbox">
+			<div class="loginbox-title">
+				<p style="font-size: 48px;">Login</p>
+				<p style="font-size: 20px;">to Aspine</p>
 			</div>
-			<div>
-				<label>
-					Password:
-					<input
-						type="password"
-						value={password}
-						onChange={e => setPassword(e.target.value)}
-						required
-						className="text-black"
-					/>
-				</label>
-			</div>
+			<label class="loginbox-cred">
+				<p>School Email:</p>
+				<input
+					type="text"
+					value={username}
+					onChange={e => setUsername(e.target.value)}
+					required
+					className="loginbox-cred-in"
+				/>
+			</label>
+			<label class="loginbox-cred">
+				<p>Password:</p>
+				<input
+					type="password"
+					value={password}
+					onChange={e => setPassword(e.target.value)}
+					required
+					className="loginbox-cred-in"
+				/>
+			</label>
 			<div>
 				<button type="submit" disabled={loading}>
 					{loading ? 'Logging in...' : 'Submit'}
