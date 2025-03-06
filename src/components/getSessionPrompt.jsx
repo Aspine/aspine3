@@ -84,11 +84,14 @@ const GetSessionPrompt = () => {
 					className="loginbox-cred-in"
 				/>
 			</label>
-			<div class="loginbox-submit">
-				<button type="submit" disabled={loading}>
-					{loading ? 'Logging in...' : 'Submit'}
-				</button>
-				<div id="sessionViewer">{sessionid}</div>
+			<div className="h-24"></div>
+			<div class="loginbox-submit-container">
+				<div class="loginbox-submit h-16">
+					<button type="submit" disabled={loading}>
+						{loading ? 'Logging in...' : 'Submit'}
+					</button>
+					<div id="sessionViewer">{sessionid}</div>
+				</div>
 			</div>
 		</form>
 	);
