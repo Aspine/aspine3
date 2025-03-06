@@ -358,9 +358,17 @@
 		padding-left: 0.5rem;
 	}
 
+	.loginbox-submit-container {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+
 	.loginbox-submit {
 		display: flex;
 		justify-content: center;
+		align-items: center;
 		height: 24px;
 		background-color: white;
 		color: #000c02;
