@@ -5,9 +5,11 @@ import Lucide from './Lucide.astro';
 <header
 	class="pt-safe !fixed top-0 z-40 bg-[rgba(0,0,0,0.7)] text-[#fff] backdrop-blur-[20px] w-[100vw]"
 >
-	<nav class="px-8 py-6 mx-auto max-w-[1480px] z-40">
+	<nav
+		class="px-8 py-6 mx-auto max-w-[1480px] z-40 flex items-center justify-center md:block"
+	>
 		<div class="flex flex-wrap place-content-between place-items-center">
-			<div class="cta flex flex-row xl:w-80">
+			<div class="cta flex flex-row xl:w-64">
 				<a href="/">
 					<Lucide
 						class="mr-2"
@@ -37,7 +39,9 @@ import Lucide from './Lucide.astro';
 					<a href="/license">License</a>
 				</li>
 			</ul>
-			<div class="flex space-x-6 text-sm xl:w-80 tracking-widest">
+			<div
+				class="space-x-6 text-sm xl:w-80 tracking-widest hidden md:unhidden md:flex ml-6"
+			>
 				<a
 					href="/login"
 					class="button font-[Satoshi-Bold] rounded-full"
