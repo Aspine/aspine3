@@ -364,13 +364,30 @@
 		height: 24px;
 		background-color: white;
 		color: #000c02;
-		border-radius: 4px;
+		border-radius: 8px;
 		width: calc((2 / 3) * 100%);
 	}
 
 	.loginbox-title {
 		display: flex;
 		flex-direction: column;
+	}
+
+	.dash-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		height: 100vh;
+		padding-top: 100px;
+		background-color: #263728;
+	}
+
+	.dash-container-in {
+		background-color: white;
+		display: flex;
+		height: calc(95vh - 100px);
+		width: 47vw;
 	}
 }
 
