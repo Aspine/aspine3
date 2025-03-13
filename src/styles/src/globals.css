@@ -126,6 +126,40 @@
 		border-radius: inherit;
 	}
 
+	.border-gradient-4 {
+		@apply relative border-none border-transparent text-[#e5eae7];
+		background: black;
+		box-shadow:
+			-1px 1px 10px -5px #4ade80,
+			5px -1px 10px -5px #e5eae7;
+		transition:
+			box-shadow 0.3s ease,
+			transform 0.3s ease;
+		transform-origin: center center;
+	}
+
+	.border-gradient-4::before {
+		content: '';
+		position: absolute;
+		top: -1.5px;
+		left: -1.5px;
+		right: -1.5px;
+		bottom: -1.5px;
+		z-index: -1;
+		pointer-events: none;
+		background: conic-gradient(
+			from 180deg at 50% 50%,
+			#818a82 0deg,
+			#263728 38deg,
+			#4ade80 72deg,
+			#000c02 120deg,
+			#e5eae7 240deg,
+			#818a82 338deg
+		);
+		border-radius: inherit;
+		transition: transform 0.3s ease;
+	}
+
 	.logoText {
 		background: linear-gradient(45deg, #4ade80, #fff 80%);
 		-webkit-background-clip: text;
@@ -333,7 +367,7 @@
 
 	.loginbox {
 		display: flex;
-		background-color: #4ade8051;
+		background-color: black;
 		flex-direction: column;
 		padding: 2rem;
 		border-radius: 32px;

@@ -61,11 +61,16 @@ const GetSessionPrompt = () => {
 	return (
 		<form onSubmit={handleSubmit} className="loginbox">
 			<div class="loginbox-title">
-				<p style="font-size: 48px;">Login</p>
-				<p style="font-size: 20px;">to Aspine</p>
+				<p style="font-size: 48px; font-family: Satoshi-Bold;">Login</p>
+				<p style="font-size: 20px; font-family: Satoshi-Medium;">
+					to{' '}
+					<span class="logoText font-['Satoshi-BoldItalic'] tracking-wider">
+						Aspine
+					</span>
+				</p>
 			</div>
 			<label class="loginbox-cred">
-				<p>School Email:</p>
+				<p style="font-family: Satoshi-Medium">School Email:</p>
 				<input
 					type="text"
 					value={username}
@@ -75,7 +80,7 @@ const GetSessionPrompt = () => {
 				/>
 			</label>
 			<label class="loginbox-cred">
-				<p>Password:</p>
+				<p style="font-family: Satoshi-Medium">Password:</p>
 				<input
 					type="password"
 					value={password}
@@ -87,7 +92,11 @@ const GetSessionPrompt = () => {
 			<div className="h-24"></div>
 			<div class="loginbox-submit-container">
 				<div class="loginbox-submit h-16">
-					<button type="submit" disabled={loading}>
+					<button
+						style="font-family: Satoshi-Bold;"
+						type="submit"
+						disabled={loading}
+					>
 						{loading ? 'Logging in...' : 'Submit'}
 					</button>
 					<div id="sessionViewer">{sessionid}</div>

@@ -32,26 +32,36 @@ export const prerender = true;
 		<div
 			class="flex flex-col mx-auto my-[5vh] pt-20 items-center justify-center"
 		>
-			<!-- hunter this is for you to make look good -->
-			<GetSessionPrompt client:load />
+			<div
+				class="flex flex-col my-[5rem] p-[2rem] border-gradient-4 w-[30rem] h-[30rem] rounded-[32px]"
+			>
+				<p>
+					<!-- YO LEAVE THIS AS IS FOR A BIT UNTIL I TOUCH IT -HENRY -->
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+					illo quia eum soluta recusandae, consectetur odit iure et blanditiis
+					dolores, rem in consequuntur fuga non, dolor voluptatem quod.
+					Ducimus, unde?
+				</p>
+
+				<!-- <GetSessionPrompt client:load /> -->
+			</div>
 		</div>
+	</main>
+	<!-- <span class="numberText text-9xl font-[Satoshi-Bold]">Login</span> -->
 
-		<!-- <span class="numberText text-9xl font-[Satoshi-Bold]">Login</span> -->
+	<div
+		class="blob -z-50 blur-[128px] w-2/5 h-96 bg-[#48c288] absolute -right-64 top-[75vh] rounded-full"
+	>
+	</div>
 
-		<div
-			class="blob -z-50 blur-[128px] w-2/5 h-96 bg-[#48c288] absolute -right-64 top-[75vh] rounded-full"
-		>
-		</div>
+	<div
+		class="w-[200vw] bottomBlur blur-[128px] h-[145vh] bg-black rounded-full absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-[165vh] -z-10"
+	>
+	</div>
 
-		<div
-			class="w-[200vw] bottomBlur blur-[128px] h-[145vh] bg-black rounded-full absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-[165vh] -z-10"
-		>
-		</div>
-
-		<!--
+	<!--
 			client:only="preact" if it doesnt need to render on the server.
 			This only needs to render on the server because I made it append the
 			session id to a div. Thats only for testing obv
 		-->
-	</main>
 </Layout>
