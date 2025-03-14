@@ -59,17 +59,20 @@ const GetSessionPrompt = () => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit} className="loginbox">
-			<div class="loginbox-title">
+		<form
+			onSubmit={handleSubmit}
+			className="border-gradient-4 my-[5rem] flex h-[30rem] w-[30rem] flex-col rounded-[32px] p-6"
+		>
+			<div className="loginbox-title">
 				<p style="font-size: 48px; font-family: Satoshi-Bold;">Login</p>
 				<p style="font-size: 20px; font-family: Satoshi-Medium;">
 					to{' '}
-					<span class="logoText font-['Satoshi-BoldItalic'] tracking-wider">
+					<span className="logoText font-['Satoshi-BoldItalic'] tracking-wider">
 						Aspine
 					</span>
 				</p>
 			</div>
-			<label class="loginbox-cred">
+			<label className="loginbox-cred">
 				<p style="font-family: Satoshi-Medium">School Email:</p>
 				<input
 					type="text"
@@ -79,7 +82,7 @@ const GetSessionPrompt = () => {
 					className="loginbox-cred-in"
 				/>
 			</label>
-			<label class="loginbox-cred">
+			<label className="loginbox-cred">
 				<p style="font-family: Satoshi-Medium">Password:</p>
 				<input
 					type="password"
@@ -89,18 +92,17 @@ const GetSessionPrompt = () => {
 					className="loginbox-cred-in"
 				/>
 			</label>
-			<div className="h-24"></div>
-			<div class="loginbox-submit-container">
-				<div class="loginbox-submit h-16">
-					<button
-						style="font-family: Satoshi-Bold;"
-						type="submit"
-						disabled={loading}
-					>
-						{loading ? 'Logging in...' : 'Submit'}
-					</button>
-					<div id="sessionViewer">{sessionid}</div>
-				</div>
+			<div className="flex grow"></div>
+			<div className="loginbox-submit-container">
+				<button
+					style="font-family: Satoshi-Bold; "
+					type="submit"
+					className="loginbox-submit h-16"
+					disabled={loading}
+				>
+					{loading ? 'Logging in...' : 'Submit'}
+				</button>
+				<div id="sessionViewer">{sessionid}</div>
 			</div>
 		</form>
 	);

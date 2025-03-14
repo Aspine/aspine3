@@ -367,10 +367,10 @@
 
 	.loginbox {
 		display: flex;
-		background-color: black;
+		background-color: transparent;
 		flex-direction: column;
-		padding: 2rem;
 		border-radius: 32px;
+		padding: 2rem;
 		margin-top: 5rem;
 		width: 30rem;
 		height: 30rem;
