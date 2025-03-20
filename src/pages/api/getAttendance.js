@@ -8,13 +8,13 @@ export async function POST({ request, url }) {
 	const getAttendance = (classesJSON, getJSONPath) => {
 		const attendances = [];
 		const classes = [
+			getJSONPath(classesJSON, [1]),
 			getJSONPath(classesJSON, [2]),
+			getJSONPath(classesJSON, [3]),
 			getJSONPath(classesJSON, [4]),
+			getJSONPath(classesJSON, [5]),
 			getJSONPath(classesJSON, [6]),
-			getJSONPath(classesJSON, [8]),
-			getJSONPath(classesJSON, [10]),
-			getJSONPath(classesJSON, [12]),
-			getJSONPath(classesJSON, [14])
+			getJSONPath(classesJSON, [7])
 		].filter(item => item !== 'null');
 
 		for (let i = 0; i < classes.length; i++) {
