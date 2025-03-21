@@ -19,16 +19,12 @@ export async function POST({ request, url }) {
 
 		for (let i = 0; i < classes.length; i++) {
 			const className = JSON.stringify(
-				getJSONPath(classesJSON, [(i + 1) * 2, 11, 0])
+				getJSONPath(classesJSON, [i + 1, 5, 0])
 			);
-			const abs = JSON.stringify(
-				getJSONPath(classesJSON, [(i + 1) * 2, 17, 0])
-			);
-			const tdy = JSON.stringify(
-				getJSONPath(classesJSON, [(i + 1) * 2, 19, 0])
-			);
+			const abs = JSON.stringify(getJSONPath(classesJSON, [i + 1, 8, 0]));
+			const tdy = JSON.stringify(getJSONPath(classesJSON, [i + 1, 9, 0]));
 			const dsm = JSON.stringify(
-				getJSONPath(classesJSON, [(i + 1) * 2, 21, 0])
+				getJSONPath(classesJSON, [i + 1, 10, 0])
 			);
 			attendances.push([className, abs, tdy, dsm]);
 		}

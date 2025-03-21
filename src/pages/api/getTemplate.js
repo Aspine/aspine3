@@ -23,7 +23,7 @@ export async function fetchData(
 		const parsedHTML = htmlToJson(response.data);
 		const classesJSON = getJSONPath(
 			parsedHTML,
-			[1, 2, 11, 0, 1, 0, 0, 1, 0, 0, 1, 22, 0, 1]
+			[1, 2, 11, 0, 1, 0, 0, 1, 0, 0, 1, 22, 0, 1, 0]
 		);
 		fs.writeFileSync('classesJSON.json', classesJSON, 'utf8');
 
