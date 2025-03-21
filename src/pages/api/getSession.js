@@ -1,14 +1,30 @@
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-extra';
 import UserAgent from 'user-agents';
+import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 // I need to comment this or else ill go nuts
 
 export async function POST({ request, url }) {
 	const userAgent = new UserAgent({ deviceCategory: 'desktop' });
 
 	const { username, password } = await request.json();
-	const headless = !(url.search === '?headless=false'); // if I put /?headless=false then it will have a head, for debugging
 
-	const browser = await puppeteer.launch({ headless });
+	puppeteer.use(StealthPlugin());
+
+	const browser = await puppeteer.launch({
+		headless: false,
+		args: [
+			'--no-sandbox',
+			'--disable-setuid-sandbox',
+			'--disable-dev-shm-usage',
+			'--disable-blink-features=AutomationControlled',
+			'--disable-gpu',
+			'--start-maximized',
+			'--window-position=0,0',
+			'--window-size=1920,1080',
+			'--lang=en-US,en'
+		],
+		defaultViewport: null
+	});
 	const page = await browser.newPage();
 
 	await page.setUserAgent(userAgent.random().toString());
@@ -35,8 +51,6 @@ export async function POST({ request, url }) {
 	 */
 
 	try {
-		await page.setDefaultNavigationTimeout(60000);
-
 		await page.goto(
 			'https://aspen.cpsd.us/aspen/logonSSO.do?deploymentId=ma-cambridge&districtId=*dst&idpName=Cambridge%20Google%20SAML'
 		);
@@ -46,7 +60,30 @@ export async function POST({ request, url }) {
 		await page.type('input[type="email"]', username);
 		await page.keyboard.press('Enter');
 
-		await page.waitForSelector('input[type="password"]', { visible: true });
+		await Promise.race([
+			page.waitForSelector('input[type="password"]', { visible: true }),
+			page.waitForSelector('iframe[src*="recaptcha"], div#captcha', {
+				visible: true
+			})
+		]);
+
+		const captchaDetected = await page.$(
+			'iframe[src*="recaptcha"], div#captcha'
+		);
+
+		if (captchaDetected) {
+			await browser.close();
+			return new Response(
+				JSON.stringify({
+					error: 'google asked for captcha, we dont support that yet lmao'
+				}),
+				{
+					code: 1,
+					status: 500,
+					headers: { 'Content-Type': 'application/json' }
+				}
+			);
+		}
 
 		await page.type('input[type="password"]', password);
 		await page.keyboard.press('Enter');

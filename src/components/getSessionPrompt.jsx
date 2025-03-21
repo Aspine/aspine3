@@ -9,23 +9,10 @@ const GetSessionPrompt = () => {
 	const headless = true;
 
 	useEffect(() => {
-		const sessionViewer = document.getElementById('sessionViewer');
-
-		const callback = (mutationList, observer) => {
-			if (mutationList.length > 0) {
-				window.location.href = '/dash';
-			}
-		};
-
-		const observer = new MutationObserver(callback);
-
-		observer.observe(sessionViewer, {
-			childList: true,
-			attributes: true,
-			characterData: true,
-			subtree: true
-		});
-	}, []);
+		if (sessionid) {
+			window.location.href = '/dash';
+		}
+	}, [sessionid]);
 
 	const handleSubmit = async event => {
 		event.preventDefault();
@@ -43,16 +30,24 @@ const GetSessionPrompt = () => {
 				}
 			);
 
-			if (!response.ok) {
-				throw new Error(`HTTP error! status: ${response.status}`);
+			if (!response.ok && response.code) {
+				throw new Error(1);
+			} else if (!response.ok) {
+				throw new Error('2');
 			}
 
 			const data = await response.json();
 			console.log('JSESSIONID:', data.jsessionid);
-			setSessionid(data.jsessionid);
 			document.cookie = `JSESSIONID=${data.jsessionid}; max-age=${30 * 60}; path=/;`;
+			setSessionid(data.jsessionid);
 		} catch (error) {
-			console.error('Error fetching JSESSIONID:', error);
+			if (error.message === '1') {
+				console.error(
+					'google asked for captcha, we dont support that yet lmao'
+				);
+			} else {
+				console.error('Error fetching JSESSIONID:', error);
+			}
 		} finally {
 			setLoading(false);
 		}
@@ -102,7 +97,6 @@ const GetSessionPrompt = () => {
 				>
 					{loading ? 'Logging in...' : 'Submit'}
 				</button>
-				<div id="sessionViewer">{sessionid}</div>
 			</div>
 		</form>
 	);
