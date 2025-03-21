@@ -1,0 +1,847 @@
+{
+	"tag": "tbody",
+	"attributes": {},
+	"children": [
+		{
+			"tag": "tr",
+			"attributes": {
+				"class": "listHeader headerLabelBackgroundList",
+				"style": "vertical-align: middle"
+			},
+			"children": [
+				{
+					"tag": "td",
+					"attributes": { "width": "1", "class": "listHeaderText" },
+					"children": [
+						{
+							"tag": "label",
+							"attributes": {
+								"for": "allRows",
+								"class": "screenReaderHiddenLabel"
+							},
+							"children": [{ "text": "Select all rows checkbox" }]
+						},
+						{
+							"tag": "input",
+							"attributes": {
+								"type": "checkbox",
+								"id": "allRows",
+								"onclick": "selectAllRows('classListForm', 'allRows', 'selectedOids', true);"
+							},
+							"children": []
+						}
+					]
+				},
+				{
+					"tag": "th",
+					"attributes": {
+						"id": "relSscMstOid.mstCourseView",
+						"onmouseover": "this.className = 'listRowHighlight listHeaderText pointer pointer'",
+						"onmouseout": "this.className = 'listHeaderText pointer'",
+						"class": "listHeaderText pointer",
+						"onclick": "javascript:doParamSubmit(2400, document.forms['classListForm'], 'relSscMstOid.mstCourseView');",
+						"width": "0",
+						"nowrap": ""
+					},
+					"children": [{ "text": "Course" }]
+				},
+				{
+					"tag": "th",
+					"attributes": {
+						"id": "sscTermView",
+						"onmouseover": "this.className = 'listRowHighlight listHeaderText pointer pointer'",
+						"onmouseout": "this.className = 'listHeaderText pointer'",
+						"class": "listHeaderText pointer",
+						"onclick": "javascript:doParamSubmit(2400, document.forms['classListForm'], 'sscTermView');",
+						"width": "0",
+						"nowrap": ""
+					},
+					"children": [{ "text": "Term" }]
+				},
+				{
+					"tag": "th",
+					"attributes": {
+						"id": "relSscMstOid.mstStaffView",
+						"onmouseover": "this.className = 'listRowHighlight listHeaderText pointer pointer'",
+						"onmouseout": "this.className = 'listHeaderText pointer'",
+						"class": "listHeaderText pointer",
+						"onclick": "javascript:doParamSubmit(2400, document.forms['classListForm'], 'relSscMstOid.mstStaffView');",
+						"width": "0",
+						"nowrap": ""
+					},
+					"children": [{ "text": "Teacher" }]
+				},
+				{
+					"tag": "th",
+					"attributes": {
+						"id": "relSscMstOid.mstRoomView",
+						"onmouseover": "this.className = 'listRowHighlight listHeaderText pointer pointer'",
+						"onmouseout": "this.className = 'listHeaderText pointer'",
+						"class": "listHeaderText pointer",
+						"onclick": "javascript:doParamSubmit(2400, document.forms['classListForm'], 'relSscMstOid.mstRoomView');",
+						"width": "0",
+						"nowrap": ""
+					},
+					"children": [{ "text": "Clssrm" }]
+				},
+				{
+					"tag": "th",
+					"attributes": {
+						"id": "relSscMstOid.mstDescription",
+						"onmouseover": "this.className = 'listRowHighlight listHeaderText pointer pointer'",
+						"onmouseout": "this.className = 'listHeaderText pointer'",
+						"class": "listHeaderText pointer",
+						"onclick": "javascript:doParamSubmit(2400, document.forms['classListForm'], 'relSscMstOid.mstDescription');",
+						"width": "0",
+						"nowrap": ""
+					},
+					"children": [{ "text": "Description" }]
+				},
+				{
+					"tag": "th",
+					"attributes": {
+						"id": "relSscSchOid.schStartDate",
+						"onmouseover": "this.className = 'listRowHighlight listHeaderText pointer pointer'",
+						"onmouseout": "this.className = 'listHeaderText pointer'",
+						"class": "listHeaderText pointer",
+						"onclick": "javascript:doParamSubmit(2400, document.forms['classListForm'], 'relSscSchOid.schStartDate');",
+						"width": "0",
+						"nowrap": ""
+					},
+					"children": [{ "text": "Start" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "class": "listHeaderText" },
+					"children": [{ "text": "Term Performance" }]
+				},
+				{
+					"tag": "th",
+					"attributes": { "class": "listHeaderText" },
+					"children": [{ "text": "Abs" }]
+				},
+				{
+					"tag": "th",
+					"attributes": { "class": "listHeaderText" },
+					"children": [{ "text": "Tdy" }]
+				},
+				{
+					"tag": "th",
+					"attributes": { "class": "listHeaderText" },
+					"children": [{ "text": "Dsm" }]
+				}
+			]
+		},
+		{
+			"tag": "tr",
+			"attributes": {
+				"class": "listCell listRowHeight null  ",
+				"style": "background-color: #F5F5F5;"
+			},
+			"children": [
+				{
+					"tag": "td",
+					"attributes": { "width": "1" },
+					"children": [
+						{
+							"tag": "label",
+							"attributes": {
+								"for": "SSC000000zWcvk",
+								"class": "screenReaderHiddenLabel"
+							},
+							"children": [
+								{ "text": "Select current record checkbox" }
+							]
+						},
+						{
+							"tag": "input",
+							"attributes": {
+								"type": "checkbox",
+								"id": "SSC000000zWcvk",
+								"name": "selectedOids",
+								"value": "SSC000000zWcvk",
+								"onclick": "selectMultipleRow('classListForm', 'allRows', 'SSC000000zWcvk', true);"
+							},
+							"children": []
+						}
+					]
+				},
+				{
+					"tag": "td",
+					"attributes": {
+						"id": "SSC000000zWcvk",
+						"onmouseover": "this.className = 'listRowHighlight pointer'",
+						"onmouseout": "this.className = 'pointer'",
+						"class": "pointer",
+						"onclick": "javascript:doParamSubmit(2100, document.forms['classListForm'], 'SSC000000zWcvk');",
+						"width": "0",
+						"nowrap": ""
+					},
+					"children": [
+						{
+							"tag": "a",
+							"attributes": {
+								"href": "javascript:doParamSubmit(2100, document.forms['classListForm'], 'SSC000000zWcvk')"
+							},
+							"children": [{ "text": "S502-005" }]
+						}
+					]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "FY" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "Solomon, Alaina" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "2606" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "AP Chemistry" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "7/1/2024" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "79.65 B-" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "4" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "1" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "0" }]
+				}
+			]
+		},
+		{
+			"tag": "tr",
+			"attributes": {
+				"class": "listCell listRowHeight null  ",
+				"style": ""
+			},
+			"children": [
+				{
+					"tag": "td",
+					"attributes": { "width": "1" },
+					"children": [
+						{
+							"tag": "label",
+							"attributes": {
+								"for": "SSC000000zWWPC",
+								"class": "screenReaderHiddenLabel"
+							},
+							"children": [
+								{ "text": "Select current record checkbox" }
+							]
+						},
+						{
+							"tag": "input",
+							"attributes": {
+								"type": "checkbox",
+								"id": "SSC000000zWWPC",
+								"name": "selectedOids",
+								"value": "SSC000000zWWPC",
+								"onclick": "selectMultipleRow('classListForm', 'allRows', 'SSC000000zWWPC', true);"
+							},
+							"children": []
+						}
+					]
+				},
+				{
+					"tag": "td",
+					"attributes": {
+						"id": "SSC000000zWWPC",
+						"onmouseover": "this.className = 'listRowHighlight pointer'",
+						"onmouseout": "this.className = 'pointer'",
+						"class": "pointer",
+						"onclick": "javascript:doParamSubmit(2100, document.forms['classListForm'], 'SSC000000zWWPC');",
+						"width": "0",
+						"nowrap": ""
+					},
+					"children": [
+						{
+							"tag": "a",
+							"attributes": {
+								"href": "javascript:doParamSubmit(2100, document.forms['classListForm'], 'SSC000000zWWPC')"
+							},
+							"children": [{ "text": "T527-001" }]
+						}
+					]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "FY" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [
+						{ "text": "Wu, Eric ; Tupper, Malinda ; Jang, Andrew" }
+					]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "1311A" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "Computer Science 2 Honors" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "7/1/2024" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "87.6 B+" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "7" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "4" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "0" }]
+				}
+			]
+		},
+		{
+			"tag": "tr",
+			"attributes": {
+				"class": "listCell listRowHeight null  ",
+				"style": "background-color: #F5F5F5;"
+			},
+			"children": [
+				{
+					"tag": "td",
+					"attributes": { "width": "1" },
+					"children": [
+						{
+							"tag": "label",
+							"attributes": {
+								"for": "SSC000000zWjHP",
+								"class": "screenReaderHiddenLabel"
+							},
+							"children": [
+								{ "text": "Select current record checkbox" }
+							]
+						},
+						{
+							"tag": "input",
+							"attributes": {
+								"type": "checkbox",
+								"id": "SSC000000zWjHP",
+								"name": "selectedOids",
+								"value": "SSC000000zWjHP",
+								"onclick": "selectMultipleRow('classListForm', 'allRows', 'SSC000000zWjHP', true);"
+							},
+							"children": []
+						}
+					]
+				},
+				{
+					"tag": "td",
+					"attributes": {
+						"id": "SSC000000zWjHP",
+						"onmouseover": "this.className = 'listRowHighlight pointer'",
+						"onmouseout": "this.className = 'pointer'",
+						"class": "pointer",
+						"onclick": "javascript:doParamSubmit(2100, document.forms['classListForm'], 'SSC000000zWjHP');",
+						"width": "0",
+						"nowrap": ""
+					},
+					"children": [
+						{
+							"tag": "a",
+							"attributes": {
+								"href": "javascript:doParamSubmit(2100, document.forms['classListForm'], 'SSC000000zWjHP')"
+							},
+							"children": [{ "text": "M502-001" }]
+						}
+					]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "FY" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "Benson, Ross" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "3104" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "AP Calculus BC" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "7/1/2024" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "91.5 A-" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "4" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "4" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "2" }]
+				}
+			]
+		},
+		{
+			"tag": "tr",
+			"attributes": {
+				"class": "listCell listRowHeight null  ",
+				"style": ""
+			},
+			"children": [
+				{
+					"tag": "td",
+					"attributes": { "width": "1" },
+					"children": [
+						{
+							"tag": "label",
+							"attributes": {
+								"for": "SSC000000zpwoc",
+								"class": "screenReaderHiddenLabel"
+							},
+							"children": [
+								{ "text": "Select current record checkbox" }
+							]
+						},
+						{
+							"tag": "input",
+							"attributes": {
+								"type": "checkbox",
+								"id": "SSC000000zpwoc",
+								"name": "selectedOids",
+								"value": "SSC000000zpwoc",
+								"onclick": "selectMultipleRow('classListForm', 'allRows', 'SSC000000zpwoc', true);"
+							},
+							"children": []
+						}
+					]
+				},
+				{
+					"tag": "td",
+					"attributes": {
+						"id": "SSC000000zpwoc",
+						"onmouseover": "this.className = 'listRowHighlight pointer'",
+						"onmouseout": "this.className = 'pointer'",
+						"class": "pointer",
+						"onclick": "javascript:doParamSubmit(2100, document.forms['classListForm'], 'SSC000000zpwoc');",
+						"width": "0",
+						"nowrap": ""
+					},
+					"children": [
+						{
+							"tag": "a",
+							"attributes": {
+								"href": "javascript:doParamSubmit(2100, document.forms['classListForm'], 'SSC000000zpwoc')"
+							},
+							"children": [{ "text": "FFAL-2135" }]
+						}
+					]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "FY" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [
+						{ "text": "Landwehr, Joshua ; Chaney, Melissa" }
+					]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "2135" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "Falcon Block" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "7/1/2024" }]
+				},
+				{ "tag": "td", "attributes": { "nowrap": "" }, "children": [] },
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "3" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "1" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "0" }]
+				}
+			]
+		},
+		{
+			"tag": "tr",
+			"attributes": {
+				"class": "listCell listRowHeight null  ",
+				"style": "background-color: #F5F5F5;"
+			},
+			"children": [
+				{
+					"tag": "td",
+					"attributes": { "width": "1" },
+					"children": [
+						{
+							"tag": "label",
+							"attributes": {
+								"for": "SSC000000zWVXg",
+								"class": "screenReaderHiddenLabel"
+							},
+							"children": [
+								{ "text": "Select current record checkbox" }
+							]
+						},
+						{
+							"tag": "input",
+							"attributes": {
+								"type": "checkbox",
+								"id": "SSC000000zWVXg",
+								"name": "selectedOids",
+								"value": "SSC000000zWVXg",
+								"onclick": "selectMultipleRow('classListForm', 'allRows', 'SSC000000zWVXg', true);"
+							},
+							"children": []
+						}
+					]
+				},
+				{
+					"tag": "td",
+					"attributes": {
+						"id": "SSC000000zWVXg",
+						"onmouseover": "this.className = 'listRowHighlight pointer'",
+						"onmouseout": "this.className = 'pointer'",
+						"class": "pointer",
+						"onclick": "javascript:doParamSubmit(2100, document.forms['classListForm'], 'SSC000000zWVXg');",
+						"width": "0",
+						"nowrap": ""
+					},
+					"children": [
+						{
+							"tag": "a",
+							"attributes": {
+								"href": "javascript:doParamSubmit(2100, document.forms['classListForm'], 'SSC000000zWVXg')"
+							},
+							"children": [{ "text": "PRTA-001" }]
+						}
+					]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "FY" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "O'Connell, Michael" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "1109" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "PE RSTA" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "7/1/2024" }]
+				},
+				{ "tag": "td", "attributes": { "nowrap": "" }, "children": [] },
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "2" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "0" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "0" }]
+				}
+			]
+		},
+		{
+			"tag": "tr",
+			"attributes": {
+				"class": "listCell listRowHeight null  ",
+				"style": ""
+			},
+			"children": [
+				{
+					"tag": "td",
+					"attributes": { "width": "1" },
+					"children": [
+						{
+							"tag": "label",
+							"attributes": {
+								"for": "SSC0000017B32L",
+								"class": "screenReaderHiddenLabel"
+							},
+							"children": [
+								{ "text": "Select current record checkbox" }
+							]
+						},
+						{
+							"tag": "input",
+							"attributes": {
+								"type": "checkbox",
+								"id": "SSC0000017B32L",
+								"name": "selectedOids",
+								"value": "SSC0000017B32L",
+								"onclick": "selectMultipleRow('classListForm', 'allRows', 'SSC0000017B32L', true);"
+							},
+							"children": []
+						}
+					]
+				},
+				{
+					"tag": "td",
+					"attributes": {
+						"id": "SSC0000017B32L",
+						"onmouseover": "this.className = 'listRowHighlight pointer'",
+						"onmouseout": "this.className = 'pointer'",
+						"class": "pointer",
+						"onclick": "javascript:doParamSubmit(2100, document.forms['classListForm'], 'SSC0000017B32L');",
+						"width": "0",
+						"nowrap": ""
+					},
+					"children": [
+						{
+							"tag": "a",
+							"attributes": {
+								"href": "javascript:doParamSubmit(2100, document.forms['classListForm'], 'SSC0000017B32L')"
+							},
+							"children": [{ "text": "FBAL-113-3" }]
+						}
+					]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "Q3" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "Landwehr, Joshua" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "2135" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "Balance Block" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "7/1/2024" }]
+				},
+				{ "tag": "td", "attributes": { "nowrap": "" }, "children": [] },
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "2" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "0" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "0" }]
+				}
+			]
+		},
+		{
+			"tag": "tr",
+			"attributes": {
+				"class": "listCell listRowHeight null  ",
+				"style": "background-color: #F5F5F5;"
+			},
+			"children": [
+				{
+					"tag": "td",
+					"attributes": { "width": "1" },
+					"children": [
+						{
+							"tag": "label",
+							"attributes": {
+								"for": "SSC000000zWWNU",
+								"class": "screenReaderHiddenLabel"
+							},
+							"children": [
+								{ "text": "Select current record checkbox" }
+							]
+						},
+						{
+							"tag": "input",
+							"attributes": {
+								"type": "checkbox",
+								"id": "SSC000000zWWNU",
+								"name": "selectedOids",
+								"value": "SSC000000zWWNU",
+								"onclick": "selectMultipleRow('classListForm', 'allRows', 'SSC000000zWWNU', true);"
+							},
+							"children": []
+						}
+					]
+				},
+				{
+					"tag": "td",
+					"attributes": {
+						"id": "SSC000000zWWNU",
+						"onmouseover": "this.className = 'listRowHighlight pointer'",
+						"onmouseout": "this.className = 'pointer'",
+						"class": "pointer",
+						"onclick": "javascript:doParamSubmit(2100, document.forms['classListForm'], 'SSC000000zWWNU');",
+						"width": "0",
+						"nowrap": ""
+					},
+					"children": [
+						{
+							"tag": "a",
+							"attributes": {
+								"href": "javascript:doParamSubmit(2100, document.forms['classListForm'], 'SSC000000zWWNU')"
+							},
+							"children": [{ "text": "E202-5509" }]
+						}
+					]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "S2" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "Labaze, Natasha" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "5102" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "English 10" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "7/1/2024" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "89.6 A-" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "5" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "18" }]
+				},
+				{
+					"tag": "td",
+					"attributes": { "nowrap": "" },
+					"children": [{ "text": "0" }]
+				}
+			]
+		},
+		{
+			"tag": "script",
+			"attributes": { "language": "Javascript" },
+			"children": [{ "text": "totalRecords = 7;" }]
+		}
+	]
+}
