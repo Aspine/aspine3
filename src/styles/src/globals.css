@@ -418,21 +418,9 @@
 	.dash-container {
 		display: flex;
 		flex-direction: row;
-		justify-content: center;
 		align-items: center;
 		height: 100vh;
 		padding-top: 100px;
-		background-color: #263728;
-	}
-
-	.dash-container-in {
-		background-color: white;
-		display: flex;
-		padding: 1rem;
-		margin: 1rem;
-		flex-direction: column;
-		height: calc(95vh - 100px);
-		width: 43vw;
 	}
 
 	.dash-schedule {
