@@ -1,5 +1,6 @@
 ---
 import Lucide from './Lucide.astro';
+import GetInfo from '../components/GetInfo.jsx';
 ---
 
 <header
@@ -21,18 +22,23 @@ import Lucide from './Lucide.astro';
 				<a
 					href="/"
 					class="logoText font-['Satoshi-Bold'] text-2xl tracking-wider"
-					>Aspine</a
+				>
+					<GetInfo client:load callType="name" /></a
 				>
 			</div>
 
 			<ul class="hidden space-x-8 text-sm xl:flex justify-center">
-				<li class="navElement py-4">How Does It Work?</li>
 				<li class="navElement py-4">
-					<a href="https://aspen.cpsd.us">Aspen</a>
+					<a href="/grades">Grades</a>
 				</li>
-				<li class="navElement py-4">Contributing</li>
 				<li class="navElement py-4">
-					<a href="/license">License</a>
+					<a href="/schedule">Schedule</a>
+				</li>
+				<li class="navElement py-4">
+					<a href="/changelog">Changelog</a>
+				</li>
+				<li class="navElement py-4">
+					<a href="/resources">Resources</a>
 				</li>
 			</ul>
 			<div class="flex space-x-6 text-sm xl:w-80 tracking-widest">

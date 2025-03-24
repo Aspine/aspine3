@@ -282,6 +282,22 @@ const GetInfo = ({ callType = 'grades' }) => {
 						})
 						.finally(() => setLoading(false));
 					break;
+				case 'name':
+					fetch(
+						`/api/getName?headless=${headless}&jsessionid=${jsessionId}`,
+						{
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/json'
+							}
+						}
+					)
+						.then(res => res.json())
+						.then(data => {
+							setReturnItem(JSON.stringify(data));
+						})
+						.finally(() => setLoading(false));
+					break;
 				default:
 					console.error(
 						'callType doesnt exist idk why tho',
@@ -301,6 +317,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 			{/* {returnItem && <pre>{returnItem}</pre>} */}
 			{returnItem &&
 				callType != 'attendance' &&
+				callType != 'name' &&
 				Object.entries(JSON.parse(returnItem)).map(
 					([course, value]) => (
 						<div key={course}>
@@ -318,6 +335,17 @@ const GetInfo = ({ callType = 'grades' }) => {
 						</div>
 					)
 				)}
+			{returnItem &&
+				callType === 'name' &&
+				(() => {
+					const { name, yearOfGrade } = JSON.parse(returnItem);
+					return (
+						<div>
+							<div>{name.match(/"text":"([^"]+)"/)[1]}</div>
+							<div>{yearOfGrade}</div>
+						</div>
+					);
+				})()}
 		</div>
 	);
 };
