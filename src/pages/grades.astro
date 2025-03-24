@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GetInfo from '../components/GetInfo.jsx';
+import Dashbar from '../components/Dashbar.astro';
+---
+
+<Layout
+	title="Aspine - Dashboard"
+	description="Aspen, reborn. More features, better UI, and a team that is for students, by students."
+	favicon="/favicon.svg"
+	bodyClasses="bg-black text-[var(--secondary-color)] overflow-x-hidden"
+>
+	<Dashbar />
+
+	<div class="flex flex-row items-center h-screen pt-[100px]">
+		<div class="flex h-[100%] w-[15%] bg-gray-500">
+			<div
+				class="flex flex-col h-[100%] w-[30%] bg-slate-700 items-center text-white justify-around"
+			>
+				<p>A</p>
+				<p>B</p>
+				<p>C</p>
+				<p>D</p>
+			</div>
+			<div
+				class="flex flex-col h-[100%] w-[70%] bg-slate-400 items-center text-white justify-around"
+			>
+				<p>TESTS</p>
+				<p>HOMEWORK</p>
+				<p>CLASSWORK</p>
+				<p>EXAMS</p>
+			</div>
+		</div>
+		<div class="flex flex-col h-[100%] w-[85%] justify-end">
+			<div
+				class="border-gradient-4 justify-center flex h-[6%] ml-2 w-[30%] flex-col rounded-[32px] py-2 px-6"
+			>
+				search
+			</div>
+			<div
+				class="border-gradient-4 flex h-[90%] m-2 w-[99%] flex-col rounded-[32px] p-6"
+			>
+				hello world
+			</div>
+		</div>
+	</div>
+</Layout>
