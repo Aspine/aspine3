@@ -1,7 +1,6 @@
 import axios from 'axios';
 import UserAgent from 'user-agents';
 import { JSDOM } from 'jsdom';
-import fs from 'fs';
 
 export async function fetchData(
 	url,
@@ -25,7 +24,6 @@ export async function fetchData(
 			parsedHTML,
 			[1, 2, 11, 0, 1, 0, 0, 1, 0, 0, 1, 22, 0, 1, 0]
 		);
-		fs.writeFileSync('classesJSON.json', classesJSON, 'utf8');
 
 		const json = functionName(classesJSON, getJSONPath);
 
