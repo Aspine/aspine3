@@ -338,11 +338,11 @@ const GetInfo = ({ callType = 'grades' }) => {
 			{returnItem &&
 				callType === 'name' &&
 				(() => {
-					const { name, yearOfGrade } = JSON.parse(returnItem);
+					const { name, yearOfGrad } = JSON.parse(returnItem);
 					return (
 						<div>
 							<div>{name.match(/"text":"([^"]+)"/)[1]}</div>
-							<div>{yearOfGrade}</div>
+							<div>{yearOfGrad.match(/"text":"([^"]+)"/)[1]}</div>
 						</div>
 					);
 				})()}
