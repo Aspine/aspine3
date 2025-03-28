@@ -342,7 +342,7 @@ const GetInfo = ({ callType = 'grades' }) => {
 					return (
 						<>
 							{name.match(/"text":"([^"]+)"/)[1]}
-							{`\n`}
+							<br />
 							{yearOfGrad.match(/"text":"([^"]+)"/)[1]}
 						</>
 					);
