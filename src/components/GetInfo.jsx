@@ -340,10 +340,11 @@ const GetInfo = ({ callType = 'grades' }) => {
 				(() => {
 					const { name, yearOfGrad } = JSON.parse(returnItem);
 					return (
-						<div>
-							<div>{name.match(/"text":"([^"]+)"/)[1]}</div>
-							<div>{yearOfGrad.match(/"text":"([^"]+)"/)[1]}</div>
-						</div>
+						<>
+							{name.match(/"text":"([^"]+)"/)[1]}
+							{`\n`}
+							{yearOfGrad.match(/"text":"([^"]+)"/)[1]}
+						</>
 					);
 				})()}
 		</div>
