@@ -24,7 +24,7 @@ export async function POST({ request, url }) {
 			htmlToJson(response.data),
 			[
 				1, 2, 11, 0, 1, 0, 0, 1, 0, 0, 1, 6, 0, 2, 0, 11, 0, 0, 0, 1, 0,
-				0, 3, 1, 0
+				0, 3, 1
 			] // this is maybe one off, check again
 		);
 
