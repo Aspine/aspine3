@@ -4,6 +4,7 @@ import tailwind from '@astrojs/tailwind';
 import preact from '@astrojs/preact';
 import chalk from 'chalk';
 import { hostname } from 'os';
+import vercel from '@astrojs/vercel';
 
 /* Declan was here */
 
