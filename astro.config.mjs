@@ -4,14 +4,13 @@ import tailwind from '@astrojs/tailwind';
 import preact from '@astrojs/preact';
 import chalk from 'chalk';
 import { hostname } from 'os';
-import vercel from '@astrojs/vercel';
 
 /* Declan was here */
 
 // https://astro.build/config
 export default defineConfig({
 	output: 'server',
-	adapter: vercel(),
+	adapter: node({ mode: 'standalone' }),
 	integrations: [tailwind(), preact()],
 	vite: {
 		plugins: [
