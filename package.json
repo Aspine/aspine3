@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "astro dev --host",
 		"start": "astro dev",
-		"build": "astro build",
+		"build": "bun run tailwind && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
 		"watch:prettier": "onchange '**/*.{js,jsx,ts,tsx,html,json,md,astro,css}' -- prettier --write --log-level warn .",

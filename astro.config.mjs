@@ -10,7 +10,7 @@ import { hostname } from 'os';
 // https://astro.build/config
 export default defineConfig({
 	output: 'server',
-	adapter: node({ mode: 'standalone' }),
+	adapter: vercel(),
 	integrations: [tailwind(), preact()],
 	vite: {
 		plugins: [
